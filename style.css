@@ -1,0 +1,17 @@
+.navbar {
+    height: 150px;
+}
+.name {
+    font-size: 2.5em;
+}
+.navbar .navbar-collapse {
+    text-align: center;
+}
+
+.navbar-nav {
+    font-size: 1.3em;
+}
+
+h3 {
+    font-size: 1.2em;
+}
