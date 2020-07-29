@@ -20,8 +20,8 @@
                 <nav class="col navbar navbar-expand-lg navbar-light">
                     <a class="navbar-brand" href="index.html">
                         <img class="logo" src="images/logo_orioak.png" width="90" height="90" alt="Site Logo"></a>
-                    <div class="name-brand"><span class="name">ORIOAK</span> by ORINOCO<br>Meubles en chêne</div>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent"
+                    <div class="name-brand"><a class="name" href="index.html">ORIOAK</a> by ORINOCO<br>Meubles en chêne</div> 
+                    <button class="navbar-toggler pull-right" type="button" data-toggle="collapse" data-target="#navbarContent"
                         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -60,61 +60,62 @@
 
     <!--Cards-->
     <div class="container">
-        <div class="row">
-            <div class="offset-lg-2 col-md-6 col-lg-4">
+        <div class="row"> <!--card-deck pour gérer la disposition de plusieurs cards séparées les unes des autres-->
+            <div class="offset-lg-2 col-md-6 col-lg-4 margin top">
                 <div class="card">
-                    <img class="card-img-top " src="images/oak_1.jpg" alt="Cross table picture">
+                    <div class="picture1"></div>
                     <div class="card-body text-center">
                         <h2 class="card-title">Cross Table</h2>
                         <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                             tempor incididunt ut labore et dolore magna aliqua.<br><span class="font-weight-bold">Price
-                                : 59'900€</span></p>
+                                : 59 900€</span></p>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-4">
+            <div class="col-md-6 col-lg-4 margin top">
                 <div class="card">
-                    <img class="card-img-top" src="images/oak_2.jpg" alt="Coffee table picture">
+                    <div class="picture2"></div>
                     <div class="card-body text-center">
                         <h2 class="card-title">Coffee Table</h2>
                         <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                             tempor incididunt ut labore et dolore magna aliqua.<br><span class="font-weight-bold">Price
-                                : 89'900€</span></p>
+                                : 89 900€</span></p>
                     </div>
                 </div>
-            </div>
+            </div>          
         </div>
+        
         <div class="row">
-            <div class="col-12 col-offset-md-2 col-lg-4">
+            <div class="col-12 offset-md-3 col-md-6 col-lg-4 margin">
                 <div class="card">
-                    <img class="card-img-top" src="images/oak_3.jpg" alt="Dining table picture">
+                    <div class="picture3"></div>
                     <div class="card-body text-center">
-                        <h2 class="card-title">Dining Table (extendable)</h2>
+                        <h2 class="card-title">Dining Table</h2>
                         <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                             tempor incididunt ut labore et dolore magna aliqua.<br><span class="font-weight-bold">Price
-                                : 109'900€</span></p>
+                                : 109 900€</span></p>
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-6 col-lg-4">
+            <div class="col-12 col-md-6 col-lg-4 margin">
                 <div class="card">
-                    <img class="card-img-top" src="images/oak_4.jpg" alt="Bench picture">
+                    <div class="picture4"></div>
                     <div class="card-body text-center">
                         <h2 class="card-title">Bench</h2>
                         <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                             tempor incididunt ut labore et dolore magna aliqua.<br><span class="font-weight-bold">Price
-                                : 39'900€</span></p>
+                                : 39 900€</span></p>
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-6 col-lg-4">
+            <div class="col-12 col-md-6 col-lg-4 margin">
                 <div class="card">
-                    <img class="card-img-top" src="images/oak_5.jpg" alt="Vintage chair picture">
+                    <div class="picture5"></div>
                     <div class="card-body text-center">
                         <h2 class="card-title">Vintage Chair</h2>
                         <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                             tempor incididunt ut labore et dolore magna aliqua.<br><span class="font-weight-bold">Price
-                                : 79'900€</span></p>
+                                : 79 900€</span></p>
                     </div>
                 </div>
             </div>
@@ -161,11 +162,11 @@
                             <a href="https://twitter.com/" target="_blank"><img src="images/twitter.png" width="25" height="25" 
                                     alt="Twitter link"></a>
                         </li>
-                        <li class="list-inline-item">&middot;</li>
+                        <li class="d-none d-sm-inline list-inline-item">&middot;</li>
                         <li class="list-inline-item"><a
                                 href="https://www.service-public.fr/professionnels-entreprises/vosdroits/F31228"
                                 target="_blank">Mentions légales</a></li>
-                        <li class="list-inline-item">&middot;</li>
+                        <li class="d-none d-md-inline list-inline-item ">&middot;</li>
                         <li class="list-inline-item"><a
                                 href="https://www.economie.gouv.fr/dgccrf/Publications/Vie-pratique/Fiches-pratiques/Conditions-generales-de-vente"
                                 target="_blank">Conditions générales de vente</a></li>

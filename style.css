@@ -11,8 +11,11 @@
         width: 60px;
         height: 60px;
     }
-
+    .name-brand {
+        padding-right: 5px;
+    }
 }
+
 .navbar .navbar-collapse {
     text-align: center;
 }
@@ -23,15 +26,43 @@ h3 {
     font-size: 1.2em;
 }
 
+
 /*Cards*/
-.card {
-    margin-top: 20px;
+.margin {
     margin-bottom: 20px;
 }
+.top {
+    margin-top: 20px;
+}
+.picture1 {
+    height: 400px;
+    background: url(images/oak_1.jpg) center center;
+    background-size: cover;
+}
+.picture2 {
+    height: 400px;
+    background: url(images/oak_2.jpg) center center;
+    background-size: cover;
+}
+.picture3 {
+    height: 400px;
+    background: url(images/oak_3.jpg) center center;
+    background-size: cover;
+}
+.picture4 {
+    height: 400px;
+    background: url(images/oak_4.jpg) center center;
+    background-size: cover;
+}
+.picture5 {
+    height: 400px;
+    background: url(images/oak_5.jpg) center center;
+    background-size: cover;
+}
+
 .information {
     padding-top: 1em;
     padding-bottom: 1em;
-
 }
 
 /*Footer*/
