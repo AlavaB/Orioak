@@ -5,27 +5,29 @@
     @media screen and (max-width: 520px)
 {
     .name {
-        font-size: 1.7em;
+        font-size: 2em;
     }
     .logo {
-        width: 60px;
-        height: 60px;
+        width: 80px;
+        height: 80px;
     }
     .name-brand {
-        padding-right: 5px;
+        width: 130px;
     }
 }
-
 .navbar .navbar-collapse {
     text-align: center;
 }
 .navbar-nav {
     font-size: 1.3em;
 }
+.navbar {
+    justify-content: space-evenly;
+}
+
 h3 {
     font-size: 1.2em;
 }
-
 
 /*Cards*/
 .margin {
@@ -76,4 +78,27 @@ a {
 }
 ul {
     padding-inline-start: 0px;
+}
+
+/*Page Produit*/
+.minus-button {  
+    width: 50px; 
+    height: 20px;
+    border: 1px solid black;
+}
+#color {
+    width: 80px;
+    height: 30px;
+    border: 1px solid black;
+    float: center;
+}
+#quantity {
+    width: 60px;
+    height: 30px;
+    border: 1px solid black;
+    float: center;
+}
+.product-card {
+    height: 200px;
+    text-align: center;
 }

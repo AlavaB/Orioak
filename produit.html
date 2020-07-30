@@ -19,16 +19,16 @@
             <div class="row">
                 <nav class="col navbar navbar-expand-lg navbar-light">
                     <a class="navbar-brand" href="index.html">
-                        <img class="logo" src="images/logo_orioak.png" width="90" height="90" alt="Site Logo"></a>
-                    <div class="name-brand"><span class="name">ORIOAK</span> by ORINOCO<br>Meubles en chêne</div>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent"
+                        <img class="logo" src="images/logo_orioak.png" width="100" height="100" alt="Site Logo"></a>
+                    <div class="name-brand  mr-sm-5"><a class="name" href="index.html">ORIOAK</a> by ORINOCO<br>Meubles en chêne</div> 
+                    <button class="navbar-toggler pull-right" type="button" data-toggle="collapse" data-target="#navbarContent"
                         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
 
                     <div id="navbarContent" class="collapse navbar-collapse justify-content-end">
                         <ul class="navbar-nav">
-                            <li class="nav-item active">
+                            <li class="nav-item">
                                 <img src="images/email.png" alt="Contact">
                                 <a class="nav-link" href="">Contact</a>
                             </li>
@@ -52,7 +52,7 @@
         <div class="container">
             <div class="row text-center text-light">
                 <div class="col-12">
-                    <h1>CROSS TABLE</h1>
+                    <h1>Votre sélection</h1>
                 </div>
             </div>
         </div>
@@ -60,18 +60,42 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-lg-7">
+            <div class="col-lg-6">
                 <div class="card margin top">
                     <div class="card-body text-center">
+                        <h1>CROSS TABLE</h1>
                         <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                         tempor incididunt ut labore et dolore magna aliqua.</p>
                     </div>
                     <img class="picture1" src="images/oak_1.jpg" alt="">                    
                 </div>
             </div>
-            <div class="col-lg-5">
+            <div class="offset-lg-1 col-lg-5">
                 <div class="card margin top">
+                    <div class="card-body">
+                        <h2 class="card-title">59 900€</h2>
+                        <div class="card-text">
+                            <label for="color">Choisissez la couleur</label>
+                                <select name="color" id="color">
+                                    <option value="">Rouge</option>
+                                    <option value="">Vert</option>
+                                    <option value="">Jaune</option>
+                                </select><br>
+                            <label for="quantity">Indiquez la quantité souhaitée</label>
+                                <div class="mb-lg-2">
+                                    <img src="images/minus_button.png" width="20" height="20" alt="">
+                                    <input type="number" id="quantity" name="quantity" nim="1" max="100">
+                                    <img src="images/plus_button.png" width="20" height="20" alt="">
+                                </div>
+                        </div>
+                        
 
+                        <button type="button" class="btn btn-warning text-center">Ajouter au panier</button>
+                        <div><img src="images/checked.png" width="30" height="30" alt="Checkek button">Suivi de livraison en ligne ou sur demande</div>
+                        <div><img src="images/checked.png" width="30" height="30" alt="Checkek button">Satisfait ou remboursé (selon conditions générales)</div>
+                        <div><img src="images/checked.png" width="30" height="30" alt="Checkek button">Respect des délais annonçés</div>
+                    </div>
+                    
                 </div>
             </div>
         </div>
@@ -116,12 +140,12 @@
                         <a href="https://twitter.com/" target="_blank"><img src="images/twitter.png" width="30" height="30" 
                                 alt="Twitter link"></a>
                         </li>
-                        <li class="list-inline-item">&middot;</li>
+                        <li class="d-none d-sm-inline list-inline-item">&middot;</li>
                         <li class="list-inline-item"><a
                                 href="https://www.service-public.fr/professionnels-entreprises/vosdroits/F31228"
                                 target="_blank">Mentions légales</a></li>
-                        <li class="list-inline-item">&middot;</li>
-                        <li class="list-inline-item"><a
+                                <li class="d-none d-md-inline list-inline-item ">&middot;</li>
+                                <li class="list-inline-item"><a
                                 href="https://www.economie.gouv.fr/dgccrf/Publications/Vie-pratique/Fiches-pratiques/Conditions-generales-de-vente"
                                 target="_blank">Conditions générales de vente</a></li>
                     </ul>
