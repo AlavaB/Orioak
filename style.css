@@ -1,11 +1,29 @@
+@font-face {
+    font-family: 'belligerent_madnessregular';
+    src: url('font/belligerent-webfont.woff2') format('woff2'),
+         url('font/belligerent-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face  {
+    font-family: 'noto_sansregular';
+    src: url('font/notosans-regular-webfont.woff2') format('woff2'),
+         url('font/notosans-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 /*Header*/
 .name {
     font-size: 2.5em;
 }
+.navbar-brand {
+    display: flex;
+    font-family: 'belligerent_madnessregular', Arial, Helvetica, sans-serif;
+}
     @media screen and (max-width: 520px)
 {
     .name {
-        font-size: 2em;
+        font-size: 1.8em;
     }
     .logo {
         width: 80px;
