@@ -12,16 +12,18 @@
     font-weight: normal;
     font-style: normal;
 }
+body {
+    font-family: 'noto_sansregular', Arial, Helvetica, sans-serif;
+}
 /*Header*/
 .name {
-    font-size: 2.5em;
+    font-size: 2.8em;
 }
 .navbar-brand {
     display: flex;
     font-family: 'belligerent_madnessregular', Arial, Helvetica, sans-serif;
 }
-    @media screen and (max-width: 520px)
-{
+@media screen and (max-width: 520px) {
     .name {
         font-size: 1.8em;
     }
@@ -115,8 +117,4 @@ ul {
     height: 30px;
     border: 1px solid black;
     float: center;
-}
-.product-card {
-    height: 200px;
-    text-align: center;
 }
