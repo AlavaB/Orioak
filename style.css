@@ -44,9 +44,14 @@ body {
 .navbar {
     justify-content: space-evenly;
 }
-
 h3 {
     font-size: 1.2em;
+}
+
+/*Title page*/
+.title-page {
+    height: 90px;
+    justify-content: center;
 }
 
 /*Cards*/
@@ -119,3 +124,4 @@ ul {
     border: 1px solid black;
     float: center;
 }
+
