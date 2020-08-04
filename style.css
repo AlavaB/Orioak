@@ -99,6 +99,12 @@ a {
 ul {
     padding-inline-start: 0px;
 }
+@media screen and (max-width: 520px) {
+    .footer-item {
+        margin-bottom: 15px;
+}
+}
+
 
 /*Page Produit*/
 #color {
