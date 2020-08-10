@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <title>Orioak - Panier</title>
+</head>
+
+<body>
+    <!--Header-->
+    <div class="bg-light">
+        <div class="container">
+            <div class="row">
+                <nav class="col navbar navbar-expand-lg navbar-light">
+                    <a class="navbar-brand" href="../html/index.html">
+                        <img class="logo" src="../images/logo_orioak.png" width="100" height="100" alt="Site Logo">
+                        <div><span class="name">ORIOAK</span> by ORINOCO<br>Meubles en chêne</div>
+                    </a>
+                    <button class="navbar-toggler pull-right" type="button" data-toggle="collapse"
+                        data-target="#navbarContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div id="navbarContent" class="collapse navbar-collapse justify-content-end">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <img src="../images/email.png" alt="Contact">
+                                <a class="nav-link" href="">Contact</a>
+                            </li>
+                            <li class="nav-item">
+                                <img src="../images/mon_compte.png" alt="Mon compte">
+                                <a class="nav-link" href="">Mon compte</a>
+                            </li>
+                            <li class="nav-item active">
+                                <img src="../images/panier.png" alt="Panier">
+                                <a class="nav-link" href="">Panier</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!--Header end-->
+
+    <div class="bg-secondary">
+        <div class="container d-flex title-page">
+            <div class="row text-light align-self-center">
+                <div class="col-12">
+                    <h1>Mon panier</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row align-items-center mt-5">
+            <div class="table-responsive">
+                <table class="table text-center">
+                    <thead class="table-striped flex-lg-row flex-xs-column">
+                        <tr>
+                            <th scope="col"></th>
+                            <th scope="col">Produit</th>
+                            <th scope="col">Prix unitaire</th>
+                            <th scope="col">Quantité</th>
+                            <th scope="col">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody class="flex-lg-row flex-xs-column">
+                        <tr>
+                            <td scope="align-middle"><img src="../images/oak_1.jpg" alt="" width="100" height="100">
+                            </td>
+                            <td class="align-middle">Cross Table</td>
+                            <td class="align-middle">59 900€</td>
+                            <td class="align-middle">1</td>
+                            <td class="align-middle">59 900€</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="row mt-2">
+            <div class="offset-lg-8 col-lg-4 offset-md-5 offset-sm-3">
+                <div class="table-responsive">
+                    <table class="table text-center">
+                        <thead>
+                            <tr>
+                                <th scope="col-sm-12">Total TTC</th>
+                                <th>59 900€</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <form action="">
+            <div class="form-group row">
+                <label for="name" class="col-auto col-form-label">Nom</label>
+                <div class="col">
+                    <input type="text" class="form-control" id="last-name" placeholder="nom">
+                </div>
+                <label for="name" class="col-auto col-form-label">Prénom</label>
+                <div class="col">
+                    <input type="text" class="form-control" id="first-name" placeholder="prénom">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="email" class="col-auto col-form-label">Email</label>
+                <div class="col">
+                    <input type="email" class="form-control" id="emailpetit" placeholder="email">
+                </div>
+                <label for="tel" class="col-auto col-form-label">Téléphone</label>
+                <div class="col">
+                    <input type="tel" class="form-control" id="phone" placeholder="téléphone">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="adress" class="col-auto col-form-label">Adresse</label>
+                <div class="col">
+                    <input type="text" class="form-control" id="adress" placeholder="adresse">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="postal-code" class="col-auto col-form-label">Code postal</label>
+                <div class="col">
+                    <input type="text" class="form-control" id="postal-code" placeholder="code postal">
+                </div>
+                <label for="city" class="col-auto col-form-label">Ville</label>
+                <div class="col">
+                    <input type="text" class="form-control" id="city" placeholder="ville">
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!--Customer information-->
+    <div class="bg-secondary">
+        <div class="container">
+            <div class="row text-center text-light">
+                <div class="col-6 col-md-6 col-lg-3 information">
+                    <img src="../images/conception.png" width="30" height="30" alt="Conception Logo">
+                    <h3>Conception sur mesure</h3>
+                </div>
+                <div class="col-6 col-md-6 col-lg-3 information">
+                    <img src="../images/quality.png" width="30" height="30" alt="Quality Logo">
+                    <h3>Qualité haut de gamme</h3>
+                </div>
+                <div class="col-6 col-md-6 col-lg-3 information ">
+                    <img src="../images/payment.png" width="30" height="30" alt="Payment Logo">
+                    <h3>Paiement sécurisé</h3>
+                </div>
+                <div class="col-6 col-md-6 col-lg-3 information">
+                    <img src="../images/delivery.png" width="30" height="30" alt="Delivery Logo">
+                    <h3>Livraison gratuite</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Customer information end-->
+
+    <!--Footer-->
+    <div class="bg-light footer">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <ul class="text-center">
+                        <li class="list-inline-item footer-item">Suivez-nous
+                            <a href="https://www.facebook.com/" target="_blank"><img src="../images/facebook.png"
+                                    width="25" height="25" alt="Facebook link"></a>
+                            <a href="https://www.instagram.com/" target="_blank"><img src="../images/instagram.png"
+                                    width="25" height="25" alt="Instagram link"></a>
+                            <a href="https://twitter.com/" target="_blank"><img src="../images/twitter.png" width="25"
+                                    height="25" alt="Twitter link"></a>
+                        </li>
+                        <li class="d-none d-sm-inline list-inline-item">&middot;</li>
+                        <li class="list-inline-item footer-item"><a
+                                href="https://www.service-public.fr/professionnels-entreprises/vosdroits/F31228"
+                                target="_blank">Mentions légales</a></li>
+                        <li class="d-none d-md-inline list-inline-item ">&middot;</li>
+                        <li class="list-inline-item footer-item"><a
+                                href="https://www.economie.gouv.fr/dgccrf/Publications/Vie-pratique/Fiches-pratiques/Conditions-generales-de-vente"
+                                target="_blank">Conditions générales de vente</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Footer end-->
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

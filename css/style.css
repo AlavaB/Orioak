@@ -1,14 +1,14 @@
 @font-face {
     font-family: 'belligerent_madnessregular';
-    src: url('font/belligerent-webfont.woff2') format('woff2'),
-         url('font/belligerent-webfont.woff') format('woff');
+    src: url('../font/belligerent-webfont.woff2') format('woff2'),
+         url('../font/belligerent-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
 @font-face  {
     font-family: 'noto_sansregular';
-    src: url('font/notosans-regular-webfont.woff2') format('woff2'),
-         url('font/notosans-regular-webfont.woff') format('woff');
+    src: url('../font/notosans-regular-webfont.woff2') format('woff2'),
+         url('../font/notosans-regular-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
@@ -63,27 +63,27 @@ h3 {
 }
 .picture1 {
     height: 400px;
-    background: url(images/oak_1.jpg) center center;
+    background: url(../images/oak_1.jpg) center center;
     background-size: cover;
 }
 .picture2 {
     height: 400px;
-    background: url(images/oak_2.jpg) center center;
+    background: url(../images/oak_2.jpg) center center;
     background-size: cover;
 }
 .picture3 {
     height: 400px;
-    background: url(images/oak_3.jpg) center center;
+    background: url(../images/oak_3.jpg) center center;
     background-size: cover;
 }
 .picture4 {
     height: 400px;
-    background: url(images/oak_4.jpg) center center;
+    background: url(../images/oak_4.jpg) center center;
     background-size: cover;
 }
 .picture5 {
     height: 400px;
-    background: url(images/oak_5.jpg) center center;
+    background: url(../images/oak_5.jpg) center center;
     background-size: cover;
 }
 
@@ -104,12 +104,11 @@ a {
 ul {
     padding-inline-start: 0px;
 }
-@media screen and (max-width: 520px) {
+@media screen and (max-width: 760px) {
     .footer-item {
         margin-bottom: 15px;
+    }
 }
-}
-
 
 /*Page Produit*/
 #color {
@@ -125,3 +124,9 @@ ul {
     float: center;
 }
 
+/*Panier*/
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 800px;
+}
