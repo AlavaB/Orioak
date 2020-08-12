@@ -129,4 +129,27 @@ ul {
     }
 }
 
-
+/*Shopping cart*/
+.title-row {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 60px;
+    padding-top: 20px;
+    font-weight: bolder;
+    border-top: 0.01rem solid #d1d1e0;
+    border-bottom: 0.15rem solid #d1d1e0;
+}
+.product-row {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.product {
+    padding-bottom: 20px;
+    padding-top: 20px;
+    border-bottom: 0.25rem solid #d1d1e0;
+}
+.form-title {
+    margin-top: 50px;
+}
