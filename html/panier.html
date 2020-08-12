@@ -53,7 +53,7 @@
         <div class="container d-flex title-page">
             <div class="row text-light align-self-center">
                 <div class="col-12">
-                    <h1>Mon panier</h1>
+                    <h1>Panier</h1>
                 </div>
             </div>
         </div>
@@ -86,7 +86,7 @@
             </div>
         </div>
 
-        <div class="row mt-2">
+        <div class="row mt-2 mb-3">
             <div class="offset-lg-8 col-lg-4 offset-md-5 offset-sm-3">
                 <div class="table-responsive">
                     <table class="table text-center">
@@ -103,43 +103,75 @@
     </div>
 
     <div class="container">
+        <h2>Formulaire à remplir</h2><br>
         <form action="">
-            <div class="form-group row">
-                <label for="name" class="col-auto col-form-label">Nom</label>
-                <div class="col">
-                    <input type="text" class="form-control" id="last-name" placeholder="nom">
-                </div>
-                <label for="name" class="col-auto col-form-label">Prénom</label>
-                <div class="col">
-                    <input type="text" class="form-control" id="first-name" placeholder="prénom">
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="email" class="col-auto col-form-label">Email</label>
-                <div class="col">
-                    <input type="email" class="form-control" id="emailpetit" placeholder="email">
-                </div>
-                <label for="tel" class="col-auto col-form-label">Téléphone</label>
-                <div class="col">
-                    <input type="tel" class="form-control" id="phone" placeholder="téléphone">
+            <div class="form-group">
+                <div class="form-row">
+                    <label class="col-md-2" for="name">Nom*</label>
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" id="last-name" required>
+                    </div>
+                    <span class="col-md-4" id="last-name-message"></span>
                 </div>
             </div>
-            <div class="form-group row">
-                <label for="adress" class="col-auto col-form-label">Adresse</label>
-                <div class="col">
-                    <input type="text" class="form-control" id="adress" placeholder="adresse">
+            <div class="form-group">
+                <div class="form-row">
+                    <label class="col-md-2" for="name">Prénom*</label>
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" id="first-name" required>
+                    </div>
+                    <span class="col-md-4" id="first-name-message"></span>
                 </div>
             </div>
-            <div class="form-group row">
-                <label for="postal-code" class="col-auto col-form-label">Code postal</label>
-                <div class="col">
-                    <input type="text" class="form-control" id="postal-code" placeholder="code postal">
-                </div>
-                <label for="city" class="col-auto col-form-label">Ville</label>
-                <div class="col">
-                    <input type="text" class="form-control" id="city" placeholder="ville">
+            <div class="form-group">
+                <div class="form-row">
+                    <label class="col-md-2" for="email">Email*</label>
+                    <div class="col-md-6">
+                        <input type="email" class="form-control" id="email" required>
+                    </div>
+                    <span class="col-md-4" id="email-message"></span>
                 </div>
             </div>
+            <div class="form-group">
+                <div class="form-row">
+                    <label class="col-md-2" for="tel">Téléphone</label>
+                    <div class="col-md-6">
+                        <input type="tel" class="form-control" id="phone">
+                    </div>
+                    <span class="col-md-4" id=""></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-row">
+                    <label class="col-md-2" for="adress">Adresse*</label>
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" id="adress" required>
+                    </div>
+                    <span class="col-md-4" id=""></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-row">
+                    <label class="col-md-2" for="postal-code">Code postal*</label>
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" id="postal-code" required>
+                    </div>
+                    <span class="col-md-4" id=""></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-row">
+                    <label class="col-md-2" for="city">Ville*</label>
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" id="city" required>
+                    </div>
+                    <span class="col-md-4" id=""></span>
+                </div>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-secondary">Confirmer la commande</button><br><br>
+            </div>
+            
         </form>
     </div>
 
@@ -197,6 +229,7 @@
     </div>
     <!--Footer end-->
 
+    <script src="../js/main.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
         crossorigin="anonymous"></script>
