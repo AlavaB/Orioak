@@ -30,7 +30,7 @@
                         <ul class="navbar-nav">
                             <li class="nav-item">
                                 <img src="../images/email.png" alt="Contact">
-                                <a class="nav-link" href="">Contact</a>
+                                <a class="nav-link" href="mailto:emilie.bojkovic@outlook.com">Contact</a>
                             </li>
                             <li class="nav-item">
                                 <img src="../images/mon_compte.png" alt="Mon compte">
@@ -48,6 +48,7 @@
     </div>
     <!--Header end-->
 
+<!--Presentation page-->
     <div class="bg-secondary">
         <div class="container d-flex title-page">
             <div class="row text-light align-self-center">
@@ -57,65 +58,69 @@
             </div>
         </div>
     </div>
+<!--Presentation page end-->
 
+<!--Product description-->
     <div class="container">
         <div class="row">
             <div class="col-lg-6">
                 <div class="card margin top">
-                    <div class="card-body text-center">
-                        <h1>CROSS TABLE</h1>
-                    </div>
-                    <img src="../images/oak_1.jpg" alt="" height="500">                    
+                    <img src="../images/oak_1.jpg" alt="" height="500">                 
                 </div>
             </div>
             <div class="col-lg-6">
-                <div class="card margin top">
-                    <div class="card-body">
-                        <h2 class="card-title display-4 price">59 900€</h2><br>
-                        <div class="card-text">
-                            <label for="color">Choisissez la couleur :</label><br>
-                                <select name="color" id="color">
-                                    <option value="">Rouge</option>
-                                    <option value="">Vert</option>
-                                    <option value="">Jaune</option>
-                                </select><br><br>
-                            <label for="quantity">Indiquez la quantité souhaitée :</label>
-                                <div class="mb-lg-2">
-                                    <input type="number" id="quantity" name="quantity" value="1" nim="1" max="100">
-                                </div><br>
-                        </div>
-                        
-
-                        <button type="button" class="btn btn-warning text-center">Ajouter au panier</button><br><br>
-                        <div><img src="../images/checked.png" width="30" height="30" alt="Checkek button">Suivi de livraison en ligne ou sur demande</div>
-                        <div><img src="../images/checked.png" width="30" height="30" alt="Checkek button">Satisfait ou remboursé (selon conditions générales)</div>
-                        <div><img src="../images/checked.png" width="30" height="30" alt="Checkek button">Respect des délais annonçés</div>
-                    </div>
+                <div class="margin top">
+                    <h1 class="display-4">CROSS TABLE</h1>
+                    <div class="border-description"></div>
+                    <h2 class="display-4 mt-3">59 900€</h2>
+                        <label for="color">Choisissez la couleur :</label><br>
+                            <select name="color" id="color">
+                                <option value="">Rouge</option>
+                                <option value="">Vert</option>
+                                <option value="">Jaune</option>
+                            </select><br><br>
+                        <label for="quantity">Indiquez la quantité souhaitée :</label>
+                            <div class="mb-lg-2">
+                                <input type="number" id="quantity" name="quantity" value="1" nim="1" max="100">
+                            </div><br>
                     
+                    <button type="button" class="btn btn-warning text-center">Ajouter au panier</button><br><br>
+                    <div><img src="../images/checked.png" width="30" height="30" alt="Checkek button">Suivi de livraison en ligne ou sur demande</div>
+                    <div><img src="../images/checked.png" width="30" height="30" alt="Checkek button">Satisfait ou remboursé (selon conditions générales)</div>
+                    <div><img src="../images/checked.png" width="30" height="30" alt="Checkek button">Respect des délais annonçés</div>
                 </div>
             </div>
         </div>
-
+        <div class="row">
+            <div class="col">
+                <p>Description</p>
+                <h3>Cross table</h3>
+                <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+        </div>
     </div>
+    <!--Product description end-->
+
     <!--Customer information-->
     <div class="bg-secondary">
         <div class="container">
             <div class="row text-center text-light">
                 <div class="col-6 col-md-6 col-lg-3 information">
                     <img src="../images/conception.png" width="30" height="30" alt="Conception Logo">
-                    <h3>Conception sur mesure</h3>
+                    <h4>Conception sur mesure</h4>
                 </div>
                 <div class="col-6 col-md-6 col-lg-3 information">
                     <img src="../images/quality.png" width="30" height="30" alt="Quality Logo">
-                    <h3>Qualité haut de gamme</h3>
+                    <h4>Qualité haut de gamme</h4>
                 </div>
                 <div class="col-6 col-md-6 col-lg-3 information ">
                     <img src="../images/payment.png" width="30" height="30" alt="Payment Logo">
-                    <h3>Paiement sécurisé</h3>
+                    <h4>Paiement sécurisé</h4>
                 </div>
                 <div class="col-6 col-md-6 col-lg-3 information">
                     <img src="../images/delivery.png" width="30" height="30" alt="Delivery Logo">
-                    <h3>Livraison gratuite</h3>
+                    <h4>Livraison gratuite</h4>
                 </div>
             </div>
         </div>
