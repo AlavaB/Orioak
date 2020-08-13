@@ -48,7 +48,7 @@ h4 {
     font-size: 1.2em;
 }
 
-/*Presentation page*/
+/*Presentation*/
 .title-page {
     height: 90px;
     justify-content: center;
@@ -86,7 +86,6 @@ h4 {
     background: url(../images/oak_5.jpg) center center;
     background-size: cover;
 }
-
 .information {
     padding-top: 1em;
     padding-bottom: 1em;
@@ -110,7 +109,7 @@ ul {
     }
 }
 
-/*Page Produit*/
+/*Product page*/
 .border-description {
     width: 100px;
     border: 0.01rem solid #d1d1e0;
@@ -141,25 +140,22 @@ h3 {
 /*Shopping cart*/
 .title-row {
     display: flex;
-    justify-content: space-between;
     margin-top: 60px;
     padding-top: 20px;
     font-weight: bolder;
     border-top: 0.01rem solid #d1d1e0;
     border-bottom: 0.15rem solid #d1d1e0;
 }
-.total-row {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 20px;
-    padding-top: 20px;
-    font-weight: bolder;
-    border-bottom: 0.15rem solid #d1d1e0;
-}
 .product-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+.total-row {
+    margin-top: 20px;
+    padding-top: 20px;
+    font-weight: bolder;
+    border-bottom: 0.15rem solid #d1d1e0;
 }
 .product {
     padding-bottom: 20px;
@@ -176,6 +172,10 @@ h3 {
     .board {
         display: none;
     } 
+    .total-row {
+        display: flex;
+        justify-content: space-around;
+    }
     .mobile-board {
     display: flex;
     flex-direction: column;
