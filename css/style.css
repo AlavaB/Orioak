@@ -57,6 +57,7 @@ h4 {
 /*Cards*/
 .margin {
     margin-top: 20px;
+    margin-bottom: 20px;
 }
 .picture1 {
     height: 400px;
@@ -86,6 +87,11 @@ h4 {
 .information {
     padding-top: 1em;
     padding-bottom: 1em;
+}
+@media screen and (max-width: 1060px) {
+    .mobile-picture {
+        height: 400px;
+    }
 }
 
 /*Footer*/

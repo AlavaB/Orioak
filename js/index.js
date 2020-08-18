@@ -1,6 +1,6 @@
 let rowElement = document.querySelector(".product-list");
 
-function card() {
+function card(url, name, price) {
     let createFirstElement = document.createElement("div");
     createFirstElement.classList.add("col-lg-6", "col-md-6", "margin");
     rowElement.appendChild(createFirstElement);
@@ -9,9 +9,11 @@ function card() {
     createCard.classList.add("card");
     createFirstElement.appendChild(createCard);
     
-    let createLink = document.createElement("a");
-    createLink.classList.add("picture");
-    createCard.appendChild(createLink);
+    let createImage = document.createElement("img");
+    createImage.src = url;
+    createImage.classList.add("mobile-picture");
+    createImage.setAttribute("height", 500);
+    createCard.appendChild(createImage);
     
     let createCardBody = document.createElement("div");
     createCardBody.classList.add("card-body", "text-center");
@@ -19,34 +21,28 @@ function card() {
 
     let createTitle = document.createElement("h2");
     createTitle.classList.add("card-title");
+    createTitle.textContent = name;
     createCardBody.appendChild(createTitle);
 
     let createText = document.createElement("p");
     createText.classList.add("card-text", "font-weight-bold");
+    createText.textContent = "Prix : " + new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(price/100);
     createCardBody.appendChild(createText);
 };
     
-card();
-card();
-
-let pictures = document.getElementsByClassName("picture");
-let firstPicture = pictures[0];
-
-function imageDataResult() {
-    imageDataResult = new XMLHttpRequest;
-    imageDataResult.open("GET", "http://localhost:3000/api/furniture");
-    imageDataResult.send();
-    imageDataResult.onreadystatechange = function () {
+function requestApi() {
+    let request = new XMLHttpRequest();
+    request.open("GET", "http://localhost:3000/api/furniture");
+    request.send();
+    request.onreadystatechange = function() {
         if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
             let response = JSON.parse(this.responseText);
-            firstPicture.textContent = response.imageUrl;
-
+            for (let index = 0; index < response.length; index++) {
+                const element = response[index];
+                card(element.imageUrl, element.name, element.price);
+            }
         }
     }
-}
+};
 
-let titles = document.getElementsByClassName("card-title");
-let firstTitle = titles[0];
-firstTitle.setAttribute("href", "http")
-
-imageDataResult();
+requestApi();
