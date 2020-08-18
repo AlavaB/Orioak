@@ -5,12 +5,6 @@ function check(value, regex, message, errorMessage) {
     } else {
         message.textContent = "";
     }
-    let messageDelete = event.target.parentElement.nextSibling.nextSibling;
-    event.target.addEventListener("blur", function (e) {
-        if (value === "") {
-            messageDelete.textContent = "";
-        }
-    });
 };
 
 

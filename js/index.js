@@ -28,10 +28,25 @@ function card() {
     
 card();
 card();
-card();
-card();
 
 let pictures = document.getElementsByClassName("picture");
 let firstPicture = pictures[0];
-firstPicture.setAttribute("href", "http://localhost:3000/images/oak_1.jpg");
-console.log(firstPicture);
+
+function imageDataResult() {
+    imageDataResult = new XMLHttpRequest;
+    imageDataResult.open("GET", "http://localhost:3000/api/furniture");
+    imageDataResult.send();
+    imageDataResult.onreadystatechange = function () {
+        if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
+            let response = JSON.parse(this.responseText);
+            firstPicture.textContent = response.imageUrl;
+
+        }
+    }
+}
+
+let titles = document.getElementsByClassName("card-title");
+let firstTitle = titles[0];
+firstTitle.setAttribute("href", "http")
+
+imageDataResult();
