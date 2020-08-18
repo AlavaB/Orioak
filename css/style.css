@@ -62,27 +62,27 @@ h4 {
     margin-top: 20px;
 }
 .picture1 {
-    height: 400px;
+    height: 500px;
     background: url(../images/oak_1.jpg) center center;
     background-size: cover;
 }
 .picture2 {
-    height: 400px;
+    height: 500px;
     background: url(../images/oak_2.jpg) center center;
     background-size: cover;
 }
 .picture3 {
-    height: 400px;
+    height: 500px;
     background: url(../images/oak_3.jpg) center center;
     background-size: cover;
 }
 .picture4 {
-    height: 400px;
+    height: 500px;
     background: url(../images/oak_4.jpg) center center;
     background-size: cover;
 }
 .picture5 {
-    height: 400px;
+    height: 500px;
     background: url(../images/oak_5.jpg) center center;
     background-size: cover;
 }
@@ -132,13 +132,16 @@ h3 {
     text-align: center;
 }
 @media screen and (max-width: 760px) {
+    .title-product {
+        font-size: 2.8em;
+    }
     .price {
         font-size: 2.8em;
     }
 }
 
 /*Shopping cart*/
-.title-row {
+.title-col {
     display: flex;
     margin-top: 60px;
     padding-top: 20px;
@@ -146,12 +149,12 @@ h3 {
     border-top: 0.01rem solid #d1d1e0;
     border-bottom: 0.15rem solid #d1d1e0;
 }
-.product-row {
+.product-col {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.total-row {
+.total-col {
     margin-top: 20px;
     padding-top: 20px;
     font-weight: bolder;
@@ -172,9 +175,12 @@ h3 {
     .board {
         display: none;
     } 
-    .total-row {
+    .total-col {
         display: flex;
         justify-content: space-around;
+    }
+    .total {
+        flex-wrap: nowrap;
     }
     .mobile-board {
     display: flex;
@@ -193,4 +199,9 @@ h3 {
 }
 .mobile-product {
     text-align: right;
+}
+
+/*Confirmation page*/
+.order-confirmation {
+    font-size: 2em;
 }
