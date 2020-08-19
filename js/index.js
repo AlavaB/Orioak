@@ -1,6 +1,5 @@
-let rowElement = document.querySelector(".product-list");
-
 function card(url, name, price) {
+    let rowElement = document.querySelector(".product-list");
     let createFirstElement = document.createElement("div");
     createFirstElement.classList.add("col-lg-6", "col-md-6", "margin");
     rowElement.appendChild(createFirstElement);
