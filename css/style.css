@@ -59,40 +59,18 @@ h4 {
     margin-top: 20px;
     margin-bottom: 20px;
 }
-.picture1 {
-    height: 400px;
-    background: url(../images/oak_1.jpg) center center;
+.picture {
+    height: 500px;
     background-size: cover;
+    background-position: center center;
 }
-.picture2 {
-    height: 400px;
-    background: url(../images/oak_2.jpg) center center;
-    background-size: cover;
-}
-.picture3 {
-    height: 400px;
-    background: url(../images/oak_3.jpg) center center;
-    background-size: cover;
-}
-.picture4 {
-    height: 400px;
-    background: url(../images/oak_4.jpg) center center;
-    background-size: cover;
-}
-.picture5 {
-    height: 400px;
-    background: url(../images/oak_5.jpg) center center;
-    background-size: cover;
-}
+
+/*Custumer information*/
 .information {
     padding-top: 1em;
     padding-bottom: 1em;
 }
-@media screen and (max-width: 1060px) {
-    .mobile-picture {
-        height: 400px;
-    }
-}
+
 
 /*Footer*/
 .footer {
