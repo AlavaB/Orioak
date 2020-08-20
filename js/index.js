@@ -3,6 +3,7 @@ function card(response) {
         const element = response[index];
 
         let rowElement = document.querySelector(".product-list");
+        
         let createFirstElement = document.createElement("div");
         createFirstElement.classList.add("col-lg-6", "col-md-6", "margin");
         rowElement.appendChild(createFirstElement);
@@ -11,10 +12,14 @@ function card(response) {
         createCard.classList.add("card");
         createFirstElement.appendChild(createCard);
 
-        let createImage = document.createElement("img");
+        let createLink = document.createElement("a");
+        createLink.setAttribute("href", "pages/produit.html");
+        createCard.appendChild(createLink);
+
+        let createImage = document.createElement("div");
         createImage.classList.add("picture");
         createImage.style.backgroundImage = "url(" + element.imageUrl + ")";
-        createCard.appendChild(createImage);
+        createLink.appendChild(createImage);
 
         let createCardBody = document.createElement("div");
         createCardBody.classList.add("card-body", "text-center");
