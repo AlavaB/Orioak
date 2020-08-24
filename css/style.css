@@ -94,6 +94,14 @@ ul {
     width: 30px;
     height: 30px;
 }
+.padding {
+    padding-right: 0;
+    padding-left: 0;
+}
+.border-description {
+    width: 100px;
+    border: 0.01rem solid #d1d1e0;
+}
 
 
 /*Shopping cart*/

@@ -13,7 +13,7 @@ function card(response) {
         createFirstElement.appendChild(createCard);
 
         let createLink = document.createElement("a");
-        createLink.setAttribute("href", "pages/produit.html");
+        createLink.setAttribute("href", "pages/produit.html?id=" + element._id);
         createCard.appendChild(createLink);
 
         let createImage = document.createElement("div");
@@ -38,5 +38,5 @@ function card(response) {
 };
 
 
-requestApi(card);
+requestApi(card, "http://localhost:3000/api/furniture");
 
