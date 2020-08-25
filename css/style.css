@@ -98,7 +98,7 @@ ul {
     padding-right: 0;
     padding-left: 0;
 }
-.border-description {
+.layout-line {
     width: 100px;
     border: 0.01rem solid #d1d1e0;
 }

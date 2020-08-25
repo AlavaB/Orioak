@@ -21,64 +21,61 @@ function orderInfo(message) {
 
 function item(response) {
 
-    let containerElement = document.querySelector(".container-item");
-    let rowElement = document.querySelector(".row-item");
-
-    let createFirstCol = document.createElement("div");
-    createFirstCol.classList.add("col-lg-6", "card", "margin", "padding");
-    rowElement.appendChild(createFirstCol);
+    let imageCol = document.getElementById("image-col");
+    let infoCol = document.getElementById("info-col");
+    let line = document.getElementById("line");
 
     let createImage = document.createElement("img");
     createImage.classList.add("picture");
     createImage.style.backgroundImage = "url(" + response.imageUrl + ")";
-    createFirstCol.appendChild(createImage);
-
-    createSecondCol.classList.add("offset-lg-1", "col-lg-5", "margin");
-    rowElement.appendChild(createSecondCol);
+    imageCol.appendChild(createImage);
 
     let createTitle = document.createElement("h1");
     createTitle.classList.add("display-4", "title-product");
     createTitle.textContent = response.name;
-    createSecondCol.appendChild(createTitle);
+    infoCol.appendChild(createTitle);
 
     let createLine = document.createElement("div");
-    createLine.classList.add("border-description");
-    createSecondCol.appendChild(createLine);
+    createLine.classList.add("layout-line");
+    infoCol.appendChild(createLine);
 
     let createPrice = document.createElement("h2");
     createPrice.classList.add("display-4", "mt-3", "price");
     createPrice.textContent = new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(response.price / 100);
-    createSecondCol.appendChild(createPrice);
+    infoCol.appendChild(createPrice);
 
-    //création élément pour sélection vernis
-    //création élément pour choix quantité
+    let createVarnishSelector = document.createElement("label");
+    createVarnishSelector.setAttribute("for", "varnish");
+    createVarnishSelector.textContent = "Choisissez le vernis :"
+    infoCol.appendChild(createVarnishSelector);
 
-    let createButton = document.createElement("button");
-    createButton.classList.add("btn", "btn-warning", "text-center");
-    createButton.textContent = "Ajouter au panier";
-    createSecondCol.appendChild(createButton);
+    let selectVarnish = document.createElement("select");
+    selectVarnish.setAttribute("name", "varnish");
+    selectVarnish.setAttribute("id", "varnish");
+    createVarnishSelector.appendChild(selectVarnish);
+    
+    /*let createVarnishOption = document.createElement("option");
+    createVarnishOption.setAttribute("value", response.varnish.length);
+    createVarnishOption.textContent = response.varnish.length;
+    selectVarnish.appendChild(createVarnishOption);*/
+    
+    let createQuantitySelector = document.createElement("label");
+    createQuantitySelector.setAttribute("for", "quantity");
+    createQuantitySelector.textContent = "Indiquez la quantité souhaitée :";
+    infoCol.appendChild(createQuantitySelector);
 
-    //insérer function pour les 3 éléments avec img checked
-    orderInfo(deliveryMessage);
-    orderInfo(refundMessage);
-    orderInfo(deadlinesMessage);
-
-    let createDescriptionRow = document.createElement("div")
-    createDescriptionRow.classList.add("row");
-    containerElement.appendChild(createDescriptionRow);
-
-    let createDescriptionCol = document.createElement("div");
-    createDescriptionCol.classList.add("col", "margin");
-    createDescriptionRow.appendChild(createDescriptionCol);
-
-    let createTitleDescription = document.createElement("h3");
-    createTitleDescription.textContent = "Description";
-    createDescriptionCol.appendChild(createTitleDescription);
-
-    let createDescription = document.createElement("p");
-    createDescription.classList.add("text-justify");
-    createDescription.textContent = response.description;
-    createDescriptionCol.appendChild(createDescription);
+    let createQuantityOption = document.createElement("div");
+    createQuantityOption.classList.add("mb-lg-2");
+    createQuantitySelector.appendChild(createQuantityOption);
+    
+    let createQuantityInput = document.createElement("input");
+    createQuantityInput.setAttribute("type", "number");
+    createQuantityInput.setAttribute("name", "quantity");
+    createQuantityInput.setAttribute("id", "quantity");
+    createQuantityInput.setAttribute("value", 1);
+    createQuantityInput.setAttribute("min", 1);
+    createQuantityInput.setAttribute("max", 9);
+    createQuantityOption.appendChild(createQuantityInput);
 };
     
 
