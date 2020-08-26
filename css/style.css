@@ -202,9 +202,19 @@ h3 {
 }
 
 /*Confirmation page*/
-.order-confirmation {
-    font-size: 2em;
-}
 .order-info {
+    display: flex;
     justify-content: space-around;
+    align-items: center;
+}
+.order-text {
+    font-size: 1.5em;
+}
+.order-confirmed {
+    color: #2ecc71;
+    font-weight: bold;
+}
+.order-confirmation {
+    font-size: 1.5em;
+    text-align: justify;
 }
