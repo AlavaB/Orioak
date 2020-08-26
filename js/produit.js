@@ -27,25 +27,17 @@ function item(response) {
         selectVarnish.appendChild(createOptions);
     }
 };
-    
+
 
 requestApi(item, apiUrl);
 
-
-function setCart() {
-    let setVarnish = localStorage.getItem("varnish");
-    let setQuantity = localStorage.getItem("quantity");
-
-    document.getElementById("varnish").value = setVarnish;
-    document.getElementById("quantity").value = setQuantity;
-
-    setVarnish = document.getElementById("cart-quantity");
-    setQuantity = document.getElementById("")
-}
-
-
 let addToCart = document.getElementById("add-to-cart");
-addToCart.addEventListener("change", function() {
-    localStorage.setItem(id + "varnish");
-    localStorage.setItem(id + "quantity");
+addToCart.addEventListener("click", function() {
+    const addCart = {
+        quantity: document.getElementById("quantity").value,
+        varnish: document.getElementById("varnish").value
+    }
+    localStorage.setItem(id, JSON.stringify(addCart));
 });
+
+

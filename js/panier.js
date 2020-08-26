@@ -9,14 +9,37 @@ function cart(response) {
     
     let price = document.getElementById("price-col");
     price.textContent = new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(response.price / 100);
-
-    let varnish = document.getElementById("varnish-col");
-    varnish.textContent = ;
-
-    let quantity = document.getElementById("quantity-col");
-    quantity.textContent = ;
 }
 
+function item(response) {
+
+    let selectVarnish = document.getElementById("varnish");
+
+    let createImage = document.getElementById("product-image");
+    createImage.style.backgroundImage = "url(" + response.imageUrl + ")";
+
+    let createTitle = document.getElementById("title-product");
+    createTitle.textContent = response.name;
+
+    let createPrice = document.getElementById("price-product");
+    createPrice.textContent = new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(response.price / 100);
+
+    for (let index = 0; index < response.varnish.length; index++) {
+        const element = response.varnish[index];
+        let createOptions = document.createElement("option");
+        createOptions.textContent = element;
+        selectVarnish.appendChild(createOptions);
+    }
+};
+
+let productKeys = Object.keys(localStorage);
+for (let index = 0; index < productKeys.length; index++) { //boucle qui récupère toutes les id et les valeurs(quantity, varnish)
+    const id = productKeys[index];
+    let product = JSON.parse(localStorage.getItem(id));
+    let apiUrl = "http://localhost:3000/api/furniture/" + id;
+    
+    requestApi(item, apiUrl);
+}
 
 /******Validation données formulaire**********/
 function check(value, regex, message, errorMessage) {
