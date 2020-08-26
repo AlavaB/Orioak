@@ -1,3 +1,23 @@
+/**********Intégration panier*/
+function cart(response) {
+
+    let image = document.getElementById("image-col");
+    image.setAttribute("src", response.imageUrl);
+
+    let name = document.getElementById("name-col");
+    name.textContent = response.name;
+    
+    let price = document.getElementById("price-col");
+    price.textContent = new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(response.price / 100);
+
+    let varnish = document.getElementById("varnish-col");
+    varnish.textContent = ;
+
+    let quantity = document.getElementById("quantity-col");
+    quantity.textContent = ;
+}
+
+
 /******Validation données formulaire**********/
 function check(value, regex, message, errorMessage) {
     if(!regex.test(value)) {

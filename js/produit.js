@@ -6,9 +6,6 @@ let apiUrl = "http://localhost:3000/api/furniture/" + id;
 
 function item(response) {
 
-    let imageCol = document.getElementById("image-col");
-    let infoCol = document.getElementById("info-col");
-    let line = document.getElementById("line");
     let selectVarnish = document.getElementById("varnish");
 
     let createImage = document.getElementById("product-image");
@@ -22,11 +19,6 @@ function item(response) {
 
     let descriptionCol = document.getElementById("description");
     descriptionCol.textContent = response.description;
-    
-    /*let createVarnishOption = document.createElement("option");
-    createVarnishOption.setAttribute("value", response.varnish.length);
-    createVarnishOption.textContent = response.varnish.length;
-    selectVarnish.appendChild(createVarnishOption);*/
 
     for (let index = 0; index < response.varnish.length; index++) {
         const element = response.varnish[index];
@@ -34,9 +26,26 @@ function item(response) {
         createOptions.textContent = element;
         selectVarnish.appendChild(createOptions);
     }
-
-
 };
     
 
 requestApi(item, apiUrl);
+
+
+function setCart() {
+    let setVarnish = localStorage.getItem("varnish");
+    let setQuantity = localStorage.getItem("quantity");
+
+    document.getElementById("varnish").value = setVarnish;
+    document.getElementById("quantity").value = setQuantity;
+
+    setVarnish = document.getElementById("cart-quantity");
+    setQuantity = document.getElementById("")
+}
+
+
+let addToCart = document.getElementById("add-to-cart");
+addToCart.addEventListener("change", function() {
+    localStorage.setItem(id + "varnish");
+    localStorage.setItem(id + "quantity");
+});

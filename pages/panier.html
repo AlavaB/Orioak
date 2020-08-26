@@ -66,14 +66,17 @@
     <!--Product description board-->
     <div class="container board">
         <div class="row">
-            <div class="offset-lg-2 col-lg-4 offset-md-2 col-md-4 title-row">
+            <div class="offset-lg-2 col-lg-2 offset-md-2 col-md-2 title-row">
                 <p>Produit</p>
             </div>
             <div class="col-lg-2 col-md-2 title-row">
                 <p>Prix unitaire</p>
             </div>
             <div class="col-lg-2 col-md-2 title-row">
-                <p>Quantité</p>
+                <p>Vernis</p>
+            </div>
+            <div class="col-lg-2 col-md-2 title-row">
+                <p>quantité</p>
             </div>
             <div class="col-lg-2 col-md-2 title-row">
                 <p>Total</p>
@@ -81,37 +84,43 @@
         </div>
         <div class="row product">
             <div class="col-lg-2 col-md-2">
-                <img src="../images/oak_1.jpg" alt="" width="100" height="100">
-            </div>
-            <div class="col-lg-4 col-md-4 product-row">
-                <p class="product-name">Cross Table</p>
+                <img id="image-col" alt="" width="100" height="100">
             </div>
             <div class="col-lg-2 col-md-2 product-row">
-                <p>59 900€</p>
+                <p id="name-col" class="product-name"></p>
             </div>
             <div class="col-lg-2 col-md-2 product-row">
-                <input type="number" id="quantity" name="quantity" value="1" nim="1" max="100">
+                <p id="price-col"></p>
             </div>
             <div class="col-lg-2 col-md-2 product-row">
-                <p>59 900€</p>
+                <select id="varnish-col" name="varnish" id="cart-varnish"></select>
+            </div>
+            <div" class="col-lg-2 col-md-2 product-row">
+                <input id="quantity-col" type="number" id="cart-quantity" name="quantity" value="1" min="1" max="100">
+            </div>
+            <div class="col-lg-2 col-md-2 product-row">
+                <p id="total-col"></p>
             </div>
         </div>
 
         <div class="row product">
             <div class="col-lg-2 col-md-2">
-                <img src="../images/oak_2.jpg" alt="" width="100" height="100">
-            </div>
-            <div class="col-lg-4 col-md-4 product-row">
-                <p class="product-name">Coffee Table</p>
+                <img id="image-col" alt="" width="100" height="100">
             </div>
             <div class="col-lg-2 col-md-2 product-row">
-                <p>89 900€</p>
+                <p id="name-col" class="product-name"></p>
             </div>
             <div class="col-lg-2 col-md-2 product-row">
-                <input type="number" id="quantity" name="quantity" value="1" nim="1" max="100">
+                <p id="price-col"></p>
             </div>
             <div class="col-lg-2 col-md-2 product-row">
-                <p>89 900€</p>
+                <select id="varnish-col" name="varnish" id="cart-varnish"></select>
+            </div>
+            <div" class="col-lg-2 col-md-2 product-row">
+                <input id="quantity-col" type="number" id="cart-quantity" name="quantity" value="1" min="1" max="100">
+            </div>
+            <div class="col-lg-2 col-md-2 product-row">
+                <p id="total-col"></p>
             </div>
         </div>
     </div>
@@ -139,7 +148,7 @@
                 <p>Quantité</p>
             </div>
             <div class="col col-xs-6 mobile-product border-top pt-3">
-                <input type="number" id="quantity" name="quantity" value="1" nim="1" max="100">
+                <input type="number" id="cart-quantity" name="quantity" value="1" min="1" max="100">
             </div>
         </div>
         <div class="row">
@@ -171,7 +180,7 @@
                 <p>Quantité</p>
             </div>
             <div class="col col-xs-6 mobile-product border-top pt-3">
-                <input type="number" id="quantity" name="quantity" value="1" nim="1" max="100">
+                <input type="number" id="cart-quantity" name="quantity" value="1" min="1" max="100">
             </div>
         </div>
         <div class="row">
