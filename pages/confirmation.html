@@ -56,7 +56,7 @@
         <div class="container d-flex title-page">
             <div class="row text-light align-self-center">
                 <div class="col-12">
-                    <h1>Confirmation de commande</h1>
+                    <h1>Validation</h1>
                 </div>
             </div>
         </div>
@@ -65,21 +65,16 @@
 
     <div class="container">
         <div class="row order-info mt-4 mb-4">
-                <img src="../images/double_checked.png" width="50" height="50" alt="">
-                <div class="order-text order-confirmed">Confirmée</div>
-                <img src="../images/chevron_right.png" width="30" height="30" alt="">
-                <img src="../images/preparing_order.png" width="40" height="40" alt="">
-                <div class="order-text">Préparation</div>
-                <img src="../images/chevron_right.png" width="30" height="30" alt="">
-                <img src="../images/truck.png" width="40" height="40" alt="">
-                <div class="order-text">Livraison</div>
+            <img class="mr-4" src="../images/double_checked.png" width="50" height="50" alt="">
+            <div class="order-text order-confirmed">Votre commande n° est confirmée</div>
         </div>
         <div class="row">
             <div class="col margin top text-center">
-                <p class="order-confirmation">Nous vous remercions pour votre achat, votre commande N° vous sera livrée dans les meilleurs délais.</p>
+                <p class="order-confirmation">Nous vous remercions pour votre achat, la livraison sera effectuée dans les meilleurs délais.</p>
             </div>
         </div>  
-            
+    </div>        
+    <div class="container board">
         <div class="row">
             <div class="col-lg-6 col-md-6 title-col">
                 <h2>Récapitulatif</h2>
@@ -95,7 +90,7 @@
             <div class="offset-lg-6 col-lg-3 offset-md-6 col-md-3 product-col">
                 <p class="product-name">Cross Table</p>
             </div>
-            <div class="col-lg-2 col-md-2 product-col">
+            <div class="col-lg-3 col-md-2 product-col">
                 <p>59 900€</p>
             </div>
         </div>
@@ -103,19 +98,53 @@
             <div class="offset-lg-6 col-lg-3 offset-md-6 col-md-3 product-col">
                 <p class="product-name">Coffee table</p>
             </div>
-            <div class="col-lg-2 col-md-2 product-col">
+            <div class="col-lg-3 col-md-2 product-col">
                 <p>89 900€</p>
             </div>
         </div>
+    </div>
+    
+    <!--Confirmation board for mobile-->
+    <div class="container mobile-board">
         <div class="row">
-            <div class="offset-lg-8 col-lg-2 offset-md-8 col-md-2 col-sm-6 col-xs-4 total-col">
+            <div class="col col-xs-12 mb-4">
+                <h2>Récapitulatif</h2>
+            </div>
+        </div>    
+        <div class="row">
+            <div class="col col-xs-6 mobile-title">
+                <p>Produit</p>
+            </div>
+            <div class="col col-xs-6 mobile-product">
+                <p class="product-name">Cross Table</p>
+            </div>
+        </div>
+        <div class="row"> 
+            <div class="col col-xs-6 mobile-title border-top pt-3">
+                <p>Montant</p>
+            </div>
+            <div class="col col-xs-6 mobile-product">
+                <p>59 900€</p>
+            </div>
+        </div>
+        
+    </div>
+    <!--Confirmation board for mobile end-->
+
+
+    <div class="container">
+        <div class="row total">
+            <div class="offset-lg-6 col-lg-3 offset-md-8 col-md-2 col-sm-6 col-xs-4 total-col">
                 <p>Total TTC</p>
             </div>
-            <div class="col-lg-2 col-md-2 col-sm-6 col-xs-4 total-col">
+            <div class="col-lg-3 col-md-2 col-sm-6 col-xs-4 total-col">
                 <p>149 800€</p>
             </div>
         </div>
     </div>
+    
+    
+
 
 
     <!--Customer information-->

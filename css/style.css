@@ -203,9 +203,14 @@ h3 {
 
 /*Confirmation page*/
 .order-info {
-    display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
+}
+@media screen and (max-width: 770px) {
+    .order-info {
+        display: block;
+        text-align: center;
+    }
 }
 .order-text {
     font-size: 1.5em;
