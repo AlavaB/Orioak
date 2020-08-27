@@ -12,34 +12,29 @@ function cart(response) {
 }
 
 function item(response) {
+    console.log(response.name);//écrire ici la création d'une ligne
 
-    let selectVarnish = document.getElementById("varnish");
-
-    let createImage = document.getElementById("product-image");
+    let createImage = document.getElementById("image-col");
     createImage.style.backgroundImage = "url(" + response.imageUrl + ")";
 
-    let createTitle = document.getElementById("title-product");
+    let createTitle = document.getElementById("name-col");
     createTitle.textContent = response.name;
 
-    let createPrice = document.getElementById("price-product");
+    let createPrice = document.getElementById("price-col");
     createPrice.textContent = new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(response.price / 100);
 
-    for (let index = 0; index < response.varnish.length; index++) {
-        const element = response.varnish[index];
-        let createOptions = document.createElement("option");
-        createOptions.textContent = element;
-        selectVarnish.appendChild(createOptions);
-    }
 };
 
 let productKeys = Object.keys(localStorage);
 for (let index = 0; index < productKeys.length; index++) { //boucle qui récupère toutes les id et les valeurs(quantity, varnish)
     const id = productKeys[index];
-    let product = JSON.parse(localStorage.getItem(id));
+    const quantity = localStorage.getItem(id);
     let apiUrl = "http://localhost:3000/api/furniture/" + id;
-    
     requestApi(item, apiUrl);
+    //changer la valeur du champ quantité avec quantity
 }
+
+
 
 /******Validation données formulaire**********/
 function check(value, regex, message, errorMessage) {
@@ -49,7 +44,6 @@ function check(value, regex, message, errorMessage) {
         message.textContent = "";
     }
 };
-
 
 let lastNameCheck = document.getElementById("last-name");
 let firstNameCheck = document.getElementById("first-name");
@@ -64,7 +58,6 @@ let emailRegex = /.+@.+\..+/;
 let phoneRegex = /^[0-9]{10,10}$/;
 let adressRegex = /^[a-zA-Z0-9À-ÿ-'\s]{1,}$/;
 let postalCodeRegex = /\d{2}[ ]?\d{3}/;
-
 
 lastNameCheck.addEventListener("input", function(event) {
     let lastNameValue = event.target.value;

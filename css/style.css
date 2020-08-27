@@ -161,3 +161,8 @@ ul {
 .mobile-product {
     text-align: right;
 }
+.picture-cart {
+    height: 100px;
+    background-size: cover;
+    background-position: center center;
+}

@@ -37,6 +37,5 @@ function card(response) {
     }
 };
 
-
 requestApi(card, "http://localhost:3000/api/furniture");
 

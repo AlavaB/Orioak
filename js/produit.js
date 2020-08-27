@@ -28,16 +28,9 @@ function item(response) {
     }
 };
 
-
 requestApi(item, apiUrl);
 
 let addToCart = document.getElementById("add-to-cart");
 addToCart.addEventListener("click", function() {
-    const addCart = {
-        quantity: document.getElementById("quantity").value,
-        varnish: document.getElementById("varnish").value
-    }
-    localStorage.setItem(id, JSON.stringify(addCart));
+    localStorage.setItem(id, document.getElementById("quantity").value);
 });
-
-
