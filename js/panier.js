@@ -12,8 +12,7 @@ function cart(response) {
 }
 
 function item(response) {
-    console.log(response.name);//écrire ici la création d'une ligne
-
+    
     let createImage = document.getElementById("image-col");
     createImage.style.backgroundImage = "url(" + response.imageUrl + ")";
 

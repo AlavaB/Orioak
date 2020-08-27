@@ -1,3 +1,4 @@
+//Appel de l'API
 function requestApi(callback, url) {
     let request = new XMLHttpRequest();
     request.open("GET", url);
