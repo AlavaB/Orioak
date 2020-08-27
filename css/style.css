@@ -183,9 +183,9 @@ h3 {
         flex-wrap: nowrap;
     }
     .mobile-board {
-    display: flex;
-    flex-direction: column;
-    padding: 20px 10px 0 10px;
+        display: flex;
+        flex-direction: column;
+        padding: 20px 10px 0 10px;
     }
     .end-product {
         border-bottom: 0.25rem solid #d1d1e0;
@@ -223,3 +223,9 @@ h3 {
     font-size: 1.5em;
     text-align: justify;
 }
+.confirmation-product {
+    padding-bottom: 20px;
+    padding-top: 20px;
+    border-bottom: 0.25rem solid #d1d1e0;
+}
+
