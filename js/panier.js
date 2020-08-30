@@ -28,7 +28,7 @@ let productKeys = Object.keys(localStorage);
 for (let index = 0; index < productKeys.length; index++) { //boucle qui récupère toutes les id et les valeurs(quantity, varnish)
     const id = productKeys[index];
     const quantity = localStorage.getItem(id);
-    let apiUrl = "http://localhost:3000/api/furniture/" + id;
+    let apiUrl = apiAdress + id;
     requestApi(item, apiUrl);
     //changer la valeur du champ quantité avec quantity
 }

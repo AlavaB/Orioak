@@ -1,7 +1,7 @@
 let pageUrl = window.location.href;
 let url = new URL(pageUrl);
 let id = url.searchParams.get("id");
-let apiUrl = "http://localhost:3000/api/furniture/" + id;
+let apiUrl = apiAdress + id;
 
 
 function item(response) {
@@ -32,5 +32,5 @@ requestApi(item, apiUrl);
 
 let addToCart = document.getElementById("add-to-cart");
 addToCart.addEventListener("click", function() {
-    localStorage.setItem(id, document.getElementById("quantity").value);
+    localStorage.setItem(cart, [cartArray]);
 });
