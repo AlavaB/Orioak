@@ -1,36 +1,86 @@
-/**********Intégration panier*/
-function cart(response) {
+let getCart = JSON.parse(localStorage.getItem("cart"));
 
-    let image = document.getElementById("image-col");
-    image.setAttribute("src", response.imageUrl);
-
-    let name = document.getElementById("name-col");
-    name.textContent = response.name;
+for (let index = 0; index < getCart.length; index++) { 
+    const element = getCart[index];
     
-    let price = document.getElementById("price-col");
-    price.textContent = new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(response.price / 100);
-}
+    let lineProduct = document.getElementById("line");//Récupération row sous les titres
 
-function item(response) {
+    let productLine = document.createElement("div");
+    productLine.classList.add("product", "col-lg-12", "padding");
+    lineProduct.appendChild(productLine);
+
+    let imageCol = document.createElement("div");
+    imageCol.setAttribute("id", "product-image");
+    imageCol.classList.add("col-lg-2", "col-md-2");
+    productLine.appendChild(imageCol); 
+
+    let image = document.createElement("img");
+    Object.assign(image, {//Méthode object.assign pour copier les valuers de toutes les propriétées directes
+        id: "image-col",
+        width: 100,
+        height: 100,
+        className: "picture-cart"
+    })
+    imageCol.appendChild(image);
+    image.style.backgroundImage = element.image;
+      
+    let colName = document.createElement("div");
+    colName.classList.add("col-lg-3", "col-md-2", "product-row", "mobile-product");
+    productLine.appendChild(colName);
+    let name = document.createElement("p");
+    name.setAttribute("id", "name-col");
+    name.classList.add("product-name");
+    name.textContent = element.name;
+    colName.appendChild(name);
     
-    let createImage = document.getElementById("image-col");
-    createImage.style.backgroundImage = "url(" + response.imageUrl + ")";
+    let colPrice = document.createElement("div");
+    colPrice.classList.add("col-lg-2", "col-md-2", "product-row", "mobile-product");
+    productLine.appendChild(colPrice);
+    let price = document.createElement("p");
+    price.setAttribute("id", "price-col");
+    price.textContent = element.price;
+    colPrice.appendChild(price);
+   
+    let colVarnish = document.createElement("div");
+    colVarnish.classList.add("col-lg-2", "col-md-2", "product-row", "mobile-product");
+    productLine.appendChild(colVarnish);
+    let varnish = document.createElement("p");
+    varnish.setAttribute("id", "varnish-col");
+    varnish.textContent = element.varnish;
+    colVarnish.appendChild(varnish);
 
-    let createTitle = document.getElementById("name-col");
-    createTitle.textContent = response.name;
+    let colQuantity = document.createElement("div");
+    colQuantity.classList.add("col-lg-2", "col-md-2", "product-row", "mobile-product");
+    productLine.appendChild(colQuantity);
+    let quantity = document.createElement("input");
+    Object.assign(quantity, {
+        id: "quantity-col",
+        type: "number",
+        value: 1,
+        min: 0,
+        max: 50
+    })
+    quantity.value = element.quantity;
+    colQuantity.appendChild(quantity);
+    
+    let colTotal = document.createElement("div");
+    colTotal.setAttribute("id", "total-col");
+    colTotal.classList.add("col-lg-1", "col-md-2", "product-row");
+    productLine.appendChild(colTotal);
+    let total = document.createElement("p");
+    total.setAttribute("id", "total");
+    total.textContent = element.price * element.quantity;
+    colTotal.appendChild(total);
+    
+    let modifyQuantity = document.getElementById("quantity-col");
+    modifyQuantity = document.addEventListener("click", function() {
+    let getQuantity = event.target.value * element.price;
+    total.textContent = getQuantity;
+    event.stopPropagation();
+    });
 
-    let createPrice = document.getElementById("price-col");
-    createPrice.textContent = new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(response.price / 100);
-
-};
-
-let productKeys = Object.keys(localStorage);
-for (let index = 0; index < productKeys.length; index++) { //boucle qui récupère toutes les id et les valeurs(quantity, varnish)
-    const id = productKeys[index];
-    const quantity = localStorage.getItem(id);
-    let apiUrl = apiAdress + id;
-    requestApi(item, apiUrl);
-    //changer la valeur du champ quantité avec quantity
+    let finalTotal = document.getElementById("final-total");
+    finalTotal.textContent = total.value;
 }
 
 

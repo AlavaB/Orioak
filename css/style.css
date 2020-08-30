@@ -102,13 +102,20 @@ ul {
     width: 100px;
     border: 0.01rem solid #d1d1e0;
 }
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 990px) {
+    #title-product {
+        font-size: 3.2em;
+    }
+    #price-product {
+        font-size: 3.2em;
+    }
+}
+@media screen and (max-width: 760px) {
     #title-product {
         font-size: 2.8em;
     }
     #price-product {
         font-size: 2.8em;
-        
     }
     #image-col {
         margin-left: 15px;
@@ -137,6 +144,7 @@ ul {
     border-bottom: 0.15rem solid #d1d1e0;
 }
 .product {
+    display: flex;
     padding-bottom: 20px;
     padding-top: 20px;
     border-bottom: 0.25rem solid #d1d1e0;
