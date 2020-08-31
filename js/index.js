@@ -32,7 +32,7 @@ function card(response) {
 
         let createText = document.createElement("p");
         createText.classList.add("card-text", "font-weight-bold");
-        createText.textContent = "Prix : " + new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(element.price / 100);
+        createText.textContent = (element.price / 100) + " €";
         createCardBody.appendChild(createText);
     }
 };

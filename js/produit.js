@@ -13,7 +13,7 @@ function item(response) {
 
     createImage.style.backgroundImage = "url(" + response.imageUrl + ")";
     createTitle.textContent = response.name;
-    createPrice.textContent = (response.price / 100);
+    createPrice.textContent = (response.price / 100) + " €";
 
     let descriptionCol = document.getElementById("description");
     descriptionCol.textContent = response.description;

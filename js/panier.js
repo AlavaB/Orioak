@@ -4,22 +4,21 @@ for (let index = 0; index < getCart.length; index++) {
     const element = getCart[index];
     
     let lineProduct = document.getElementById("line");//Récupération row sous les titres
+    let priceNumber = element.price.replace(/\D/g,'');
 
     let productLine = document.createElement("div");
     productLine.classList.add("product", "col-lg-12", "padding");
     lineProduct.appendChild(productLine);
 
     let imageCol = document.createElement("div");
-    imageCol.setAttribute("id", "product-image");
     imageCol.classList.add("col-lg-2", "col-md-2");
     productLine.appendChild(imageCol); 
 
     let image = document.createElement("img");
     Object.assign(image, {//Méthode object.assign pour copier les valuers de toutes les propriétées directes
-        id: "image-col",
         width: 100,
         height: 100,
-        className: "picture-cart"
+        className: "picture-cart image-col"
     })
     imageCol.appendChild(image);
     image.style.backgroundImage = element.image;
@@ -28,8 +27,7 @@ for (let index = 0; index < getCart.length; index++) {
     colName.classList.add("col-lg-3", "col-md-2", "product-row", "mobile-product");
     productLine.appendChild(colName);
     let name = document.createElement("p");
-    name.setAttribute("id", "name-col");
-    name.classList.add("product-name");
+    name.classList.add("product-name", "mobile-product");
     name.textContent = element.name;
     colName.appendChild(name);
     
@@ -37,7 +35,7 @@ for (let index = 0; index < getCart.length; index++) {
     colPrice.classList.add("col-lg-2", "col-md-2", "product-row", "mobile-product");
     productLine.appendChild(colPrice);
     let price = document.createElement("p");
-    price.setAttribute("id", "price-col");
+    price.classList.add("mobile-product");
     price.textContent = element.price;
     colPrice.appendChild(price);
    
@@ -45,7 +43,6 @@ for (let index = 0; index < getCart.length; index++) {
     colVarnish.classList.add("col-lg-2", "col-md-2", "product-row", "mobile-product");
     productLine.appendChild(colVarnish);
     let varnish = document.createElement("p");
-    varnish.setAttribute("id", "varnish-col");
     varnish.textContent = element.varnish;
     colVarnish.appendChild(varnish);
 
@@ -54,30 +51,25 @@ for (let index = 0; index < getCart.length; index++) {
     productLine.appendChild(colQuantity);
     let quantity = document.createElement("input");
     Object.assign(quantity, {
-        id: "quantity-col",
         type: "number",
         value: 1,
         min: 0,
         max: 50
     })
     quantity.value = element.quantity;
+    quantity.addEventListener("change", function(event) {
+        let getQuantity = event.target.value * priceNumber + " €";
+        total.textContent = getQuantity;
+        });
     colQuantity.appendChild(quantity);
     
     let colTotal = document.createElement("div");
-    colTotal.setAttribute("id", "total-col");
     colTotal.classList.add("col-lg-1", "col-md-2", "product-row");
     productLine.appendChild(colTotal);
     let total = document.createElement("p");
-    total.setAttribute("id", "total");
-    total.textContent = element.price * element.quantity;
+
+    total.textContent = priceNumber * element.quantity + " €";
     colTotal.appendChild(total);
-    
-    let modifyQuantity = document.getElementById("quantity-col");
-    modifyQuantity = document.addEventListener("click", function() {
-    let getQuantity = event.target.value * element.price;
-    total.textContent = getQuantity;
-    event.stopPropagation();
-    });
 
     let finalTotal = document.getElementById("final-total");
     finalTotal.textContent = total.value;
