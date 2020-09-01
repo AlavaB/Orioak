@@ -1,28 +1,41 @@
 let getCart = JSON.parse(localStorage.getItem("cart"));
+let addTotalProduct = 0;
+let finalTotal = document.getElementById("final-total");
 
-for (let index = 0; index < getCart.length; index++) { 
+for (let index = 0; index < getCart.length; index++) {
     const element = getCart[index];
-    
-    let lineProduct = document.getElementById("line");//Récupération row sous les titres
-    let priceNumber = element.price.replace(/\D/g,'');
+
+    let lineProduct = document.getElementById("line");
+    let priceNumber = element.price.replace(/\D/g, '');
 
     let productLine = document.createElement("div");
     productLine.classList.add("product", "col-lg-12", "padding");
     lineProduct.appendChild(productLine);
 
-    let imageCol = document.createElement("div");
-    imageCol.classList.add("col-lg-2", "col-md-2");
-    productLine.appendChild(imageCol); 
+    let deleteCol = document.createElement("div");
+    deleteCol.classList.add("delete", "col-lg-1", "col-md-1");
+    productLine.appendChild(deleteCol);
+    let deleteElement = document.createElement("img");
+    deleteElement.src = "../images/deletion_cross.png";
+    Object.assign(deleteElement, {
+        width: 25,
+        height: 25,
+        className: "deletion-cross product-row"
+    })
+    deleteCol.appendChild(deleteElement);
 
+    let imageCol = document.createElement("div");
+    imageCol.classList.add("col-lg-1", "col-md-1");
+    productLine.appendChild(imageCol);
     let image = document.createElement("img");
     Object.assign(image, {//Méthode object.assign pour copier les valuers de toutes les propriétées directes
-        width: 100,
-        height: 100,
+        width: 80,
+        height: 80,
         className: "picture-cart image-col"
     })
     imageCol.appendChild(image);
     image.style.backgroundImage = element.image;
-      
+
     let colName = document.createElement("div");
     colName.classList.add("col-lg-3", "col-md-2", "product-row", "mobile-product");
     productLine.appendChild(colName);
@@ -30,7 +43,7 @@ for (let index = 0; index < getCart.length; index++) {
     name.classList.add("product-name", "mobile-product");
     name.textContent = element.name;
     colName.appendChild(name);
-    
+
     let colPrice = document.createElement("div");
     colPrice.classList.add("col-lg-2", "col-md-2", "product-row", "mobile-product");
     productLine.appendChild(colPrice);
@@ -38,7 +51,7 @@ for (let index = 0; index < getCart.length; index++) {
     price.classList.add("mobile-product");
     price.textContent = element.price;
     colPrice.appendChild(price);
-   
+
     let colVarnish = document.createElement("div");
     colVarnish.classList.add("col-lg-2", "col-md-2", "product-row", "mobile-product");
     productLine.appendChild(colVarnish);
@@ -57,29 +70,39 @@ for (let index = 0; index < getCart.length; index++) {
         max: 50
     })
     quantity.value = element.quantity;
-    quantity.addEventListener("change", function(event) {
+    quantity.addEventListener("change", function (event) {
         let getQuantity = event.target.value * priceNumber + " €";
         total.textContent = getQuantity;
-        });
+        let getTotals = document.getElementsByClassName("total-product");
+        let newTotal = 0;
+        for (let index = 0; index < getTotals.length; index++) {
+            const element = getTotals[index];
+            newTotal += parseInt(element.textContent.replace(/\D/g, ''));
+            finalTotal.textContent = newTotal + " €";
+        }
+    });
     colQuantity.appendChild(quantity);
-    
+
     let colTotal = document.createElement("div");
     colTotal.classList.add("col-lg-1", "col-md-2", "product-row");
     productLine.appendChild(colTotal);
     let total = document.createElement("p");
-
+    total.classList.add("total-product");
     total.textContent = priceNumber * element.quantity + " €";
-    colTotal.appendChild(total);
 
-    let finalTotal = document.getElementById("final-total");
-    finalTotal.textContent = total.value;
+    colTotal.appendChild(total);
+    addTotalProduct += parseInt(priceNumber);
+    finalTotal.textContent = addTotalProduct + " €";
+
+
 }
+
 
 
 
 /******Validation données formulaire**********/
 function check(value, regex, message, errorMessage) {
-    if(!regex.test(value)) {
+    if (!regex.test(value)) {
         message.textContent = errorMessage;
     } else {
         message.textContent = "";
@@ -100,43 +123,43 @@ let phoneRegex = /^[0-9]{10,10}$/;
 let adressRegex = /^[a-zA-Z0-9À-ÿ-'\s]{1,}$/;
 let postalCodeRegex = /\d{2}[ ]?\d{3}/;
 
-lastNameCheck.addEventListener("input", function(event) {
+lastNameCheck.addEventListener("input", function (event) {
     let lastNameValue = event.target.value;
     let lastNameMessage = document.getElementById("last-name-message");
     check(lastNameValue, lettersRegex, lastNameMessage, "Veuillez saisir un nom valide");
 });
 
-firstNameCheck.addEventListener("input", function(event) {
+firstNameCheck.addEventListener("input", function (event) {
     let firstNameValue = event.target.value;
     let firstNameMessage = document.getElementById("first-name-message");
     check(firstNameValue, lettersRegex, firstNameMessage, "Veuillez saisir un prénom valide");
 });
 
-emailCheck.addEventListener("input", function(event) {
+emailCheck.addEventListener("input", function (event) {
     let emailValue = event.target.value;
     let emailMessage = document.getElementById("email-message");
     check(emailValue, emailRegex, emailMessage, "Veuillez saisir une adresse email valide");
 });
 
-phoneCheck.addEventListener("input", function(event) {
+phoneCheck.addEventListener("input", function (event) {
     let phoneValue = event.target.value;
     let phoneMessage = document.getElementById("phone-message");
     check(phoneValue, phoneRegex, phoneMessage, "Veuillez saisir un numéro de téléphone valide");
 });
 
-adressCheck.addEventListener("input", function(event) {
+adressCheck.addEventListener("input", function (event) {
     let adressValue = event.target.value;
     let adressMessage = document.getElementById("adress-message");
     check(adressValue, adressRegex, adressMessage, "Veuillez saisir une adresse valide")
 });
 
-postalCodeCheck.addEventListener("input", function(event) {
+postalCodeCheck.addEventListener("input", function (event) {
     let postalCodeValue = event.target.value;
     let postalCodeMessage = document.getElementById("postal-code-message");
     check(postalCodeValue, postalCodeRegex, postalCodeMessage, "Veuillez saisir un code postal valide");
 });
 
-cityCheck.addEventListener("input", function(event) {
+cityCheck.addEventListener("input", function (event) {
     let cityValue = event.target.value;
     let cityMessage = document.getElementById("city-message");
     check(cityValue, lettersRegex, cityMessage, "Veuillez saisir un nom de ville valide");

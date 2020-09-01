@@ -9,7 +9,7 @@ function card(response) {
         rowElement.appendChild(createFirstElement);
 
         let createCard = document.createElement("div");
-        createCard.classList.add("card");
+        createCard.classList.add("item");
         createFirstElement.appendChild(createCard);
 
         let createLink = document.createElement("a");
