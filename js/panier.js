@@ -13,19 +13,22 @@ for (let index = 0; index < getCart.length; index++) {
     lineProduct.appendChild(productLine);
 
     let deleteCol = document.createElement("div");
-    deleteCol.classList.add("delete", "col-lg-1", "col-md-1");
-    productLine.appendChild(deleteCol);
-    let deleteElement = document.createElement("img");
-    deleteElement.src = "../images/deletion_cross.png";
+    deleteCol.classList.add("col-lg-1", "col-md-1", "product-row", "delete")
+    productLine.appendChild(deleteCol);  
+    let deleteElement = document.createElement("input");
     Object.assign(deleteElement, {
-        width: 25,
-        height: 25,
-        className: "deletion-cross product-row"
+        type: "image",
+        title: "supprimer",
+        src: "../images/deletion_cross.png"
     })
     deleteCol.appendChild(deleteElement);
+    deleteElement.addEventListener("click", function() {
+        
+        //insérer removeItem
+    })
 
     let imageCol = document.createElement("div");
-    imageCol.classList.add("col-lg-1", "col-md-1");
+    imageCol.classList.add("col-lg-2", "col-md-2");
     productLine.appendChild(imageCol);
     let image = document.createElement("img");
     Object.assign(image, {//Méthode object.assign pour copier les valuers de toutes les propriétées directes
@@ -37,30 +40,31 @@ for (let index = 0; index < getCart.length; index++) {
     image.style.backgroundImage = element.image;
 
     let colName = document.createElement("div");
-    colName.classList.add("col-lg-3", "col-md-2", "product-row", "mobile-product");
+    colName.classList.add("col-lg-2", "col-md-2", "product-row");
     productLine.appendChild(colName);
     let name = document.createElement("p");
-    name.classList.add("product-name", "mobile-product");
+    name.classList.add("product-name", "paragraph-product");
     name.textContent = element.name;
     colName.appendChild(name);
 
     let colPrice = document.createElement("div");
-    colPrice.classList.add("col-lg-2", "col-md-2", "product-row", "mobile-product");
+    colPrice.classList.add("col-lg-2", "col-md-2", "product-row");
     productLine.appendChild(colPrice);
     let price = document.createElement("p");
-    price.classList.add("mobile-product");
+    price.classList.add("paragraph-product");
     price.textContent = element.price;
     colPrice.appendChild(price);
 
     let colVarnish = document.createElement("div");
-    colVarnish.classList.add("col-lg-2", "col-md-2", "product-row", "mobile-product");
+    colVarnish.classList.add("col-lg-2", "col-md-2", "product-row");
     productLine.appendChild(colVarnish);
     let varnish = document.createElement("p");
+    varnish.classList.add("paragraph-product");
     varnish.textContent = element.varnish;
     colVarnish.appendChild(varnish);
 
     let colQuantity = document.createElement("div");
-    colQuantity.classList.add("col-lg-2", "col-md-2", "product-row", "mobile-product");
+    colQuantity.classList.add("col-lg-2", "col-md-2", "product-row");
     productLine.appendChild(colQuantity);
     let quantity = document.createElement("input");
     Object.assign(quantity, {
@@ -87,14 +91,12 @@ for (let index = 0; index < getCart.length; index++) {
     colTotal.classList.add("col-lg-1", "col-md-2", "product-row");
     productLine.appendChild(colTotal);
     let total = document.createElement("p");
-    total.classList.add("total-product");
+    total.classList.add("total-product", "paragraph-product");
     total.textContent = priceNumber * element.quantity + " €";
 
     colTotal.appendChild(total);
     addTotalProduct += parseInt(priceNumber);
     finalTotal.textContent = addTotalProduct + " €";
-
-
 }
 
 

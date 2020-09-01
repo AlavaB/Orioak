@@ -124,7 +124,7 @@ ul {
     #price-product {
         font-size: 2.8em;
     }
-    .image-col {
+    #image-col {
         margin-left: 15px;
         margin-right: 15px;
     }
@@ -141,7 +141,6 @@ ul {
 }
 .product-row {
     display: flex;
-    justify-content: space-between;
     align-items: center;
 }
 .total-row {
@@ -171,9 +170,9 @@ ul {
         justify-content: space-around;
     }
     .mobile-board {
-    display: flex;
-    flex-direction: column;
-    padding: 20px 10px 0 10px;
+        display: flex;
+        flex-direction: column;
+        padding: 20px 10px 0 10px;
     }
     .end-product {
         border-bottom: 0.25rem solid #d1d1e0;
@@ -185,11 +184,14 @@ ul {
 .mobile-title {
     font-weight: bolder;
 }
-.mobile-product {
-    text-align: right;
-}
 .picture-cart {
     height: 100px;
     background-size: cover;
     background-position: center center;
+}
+.paragraph-product {
+    margin-bottom: 0;
+}
+.delete {
+    justify-content: center;
 }

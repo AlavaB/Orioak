@@ -30,7 +30,13 @@ requestApi(item, apiUrl);
 
 let addToCart = document.getElementById("add-to-cart");
 addToCart.addEventListener("click", function () {
-    let product = { varnish: selectVarnish.value, quantity: selectQuantity.value, image: createImage.style.backgroundImage, name: createTitle.textContent, price: createPrice.textContent };
+    let product = { 
+        varnish: selectVarnish.value, 
+        quantity: selectQuantity.value, 
+        image: createImage.style.backgroundImage, 
+        name: createTitle.textContent, 
+        price: createPrice.textContent 
+    };
     if (localStorage.getItem("cart")) {
         let cartArray = JSON.parse(localStorage.getItem("cart"));
         cartArray.push(product);
