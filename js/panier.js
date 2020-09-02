@@ -2,6 +2,20 @@ let cartArray = JSON.parse(localStorage.getItem("cart"));//Lecture données loca
 let addTotalProduct = 0;
 let finalTotal = document.getElementById("final-total");
 
+
+
+function updateFinalTotal() {
+    let getTotals = document.getElementsByClassName("total-product");
+        let newTotal = 0;
+        if(getTotals) {
+            for (let index = 0; index < getTotals.length; index++) {
+            const element = getTotals[index];
+            newTotal += parseInt(element.textContent.replace(/\D/g, ''));     
+        }
+    }
+    finalTotal.textContent = newTotal + " €";      
+};
+
 for (let index = 0; index < cartArray.length; index++) {//pour chaque objet présents dans le tableau j'éxécute la boucle
     const element = cartArray[index];
 
@@ -27,14 +41,8 @@ for (let index = 0; index < cartArray.length; index++) {//pour chaque objet pré
         const index = cartArray.indexOf(element);//Récupération de l'index à supprimer
         cartArray.splice(index, 1);
         localStorage.setItem("cart", JSON.stringify(cartArray));//Nouvelle sauvegarde dans le local storage après supression de l'élément
-        document.getElementById(element.id).remove();
-        let getTotals = document.getElementsByClassName("total-product");
-        let newTotal = 0;
-        for (let index = 0; index < getTotals.length; index++) {
-            const element = getTotals[index];
-            newTotal += parseInt(element.textContent.replace(/\D/g, ''));
-            finalTotal.textContent = newTotal + " €";
-        }
+        document.getElementById(element.id).remove();//Suppression de la ligne
+        updateFinalTotal();
     })
     
     deleteCol.appendChild(deleteElement);
@@ -43,7 +51,7 @@ for (let index = 0; index < cartArray.length; index++) {//pour chaque objet pré
     imageCol.classList.add("col-lg-2", "col-md-2");
     productLine.appendChild(imageCol);
     let image = document.createElement("img");
-    Object.assign(image, {//Méthode object.assign pour copier les valuers de toutes les propriétées directes
+    Object.assign(image, {//Méthode object.assign pour copier les valeurs de toutes les propriétées directes
         width: 80,
         height: 80,
         className: "picture-cart image-col"
@@ -81,6 +89,7 @@ for (let index = 0; index < cartArray.length; index++) {//pour chaque objet pré
     let quantity = document.createElement("input");
     Object.assign(quantity, {
         type: "number",
+        name: "quantity",
         value: 1,
         min: 0,
         max: 50
@@ -89,13 +98,7 @@ for (let index = 0; index < cartArray.length; index++) {//pour chaque objet pré
     quantity.addEventListener("change", function (event) {
         let getQuantity = event.target.value * priceNumber + " €";
         total.textContent = getQuantity;
-        let getTotals = document.getElementsByClassName("total-product");
-        let newTotal = 0;
-        for (let index = 0; index < getTotals.length; index++) {
-            const element = getTotals[index];
-            newTotal += parseInt(element.textContent.replace(/\D/g, ''));
-            finalTotal.textContent = newTotal + " €";
-        }
+        updateFinalTotal();
     });
     colQuantity.appendChild(quantity);
 
@@ -109,7 +112,107 @@ for (let index = 0; index < cartArray.length; index++) {//pour chaque objet pré
     colTotal.appendChild(total);
     addTotalProduct += parseInt(priceNumber * element.quantity);
     finalTotal.textContent = addTotalProduct + " €";
+
+    //Création de la page mobile dynamiquement
+
+
+    let lineMobileProduct = document.getElementById("line-mobile");
+    let rowNameMobile = document.createElement("div");
+    rowNameMobile.classList.add("row", "name-row");
+    lineMobileProduct.appendChild(rowNameMobile);
+    
+    let productNameMobile = document.createElement("div");
+    productNameMobile.classList.add("col-xs-6", "product-name");
+    rowNameMobile.appendChild(productNameMobile);
+    let productName = document.createElement("p");
+    productName.classList.add("name-size");
+    productName.textContent = element.name;
+    productNameMobile.appendChild(productName);
+
+    let rowPriceMobile = document.createElement("div");
+    rowPriceMobile.classList.add("row", "row-mobile");
+    lineMobileProduct.appendChild(rowPriceMobile);
+    let priceLineMobile = document.createElement("div");
+    priceLineMobile.classList.add("col-xs-6", "mobile-title",  "pt-3");
+    rowPriceMobile.appendChild(priceLineMobile);
+    let priceTitle = document.createElement("p");
+    priceTitle.textContent = "Prix unitaire";
+    priceLineMobile.appendChild(priceTitle);
+    let productPriceMobile = document.createElement("div");
+    productPriceMobile.classList.add("col-xs-6", "pt-3");
+    rowPriceMobile.appendChild(productPriceMobile);
+    let productPrice = document.createElement("p");
+    productPrice.classList.add("price-col");
+    productPrice.textContent = element.price;
+    productPriceMobile.appendChild(productPrice);
+
+    let rowVarnishMobile = document.createElement("div");
+    rowVarnishMobile.classList.add("row", "row-mobile");
+    lineMobileProduct.appendChild(rowVarnishMobile);
+
+    let varnishLineMobile = document.createElement("div");
+    varnishLineMobile.classList.add("col-xs-6", "mobile-title", "pt-3");
+    rowVarnishMobile.appendChild(varnishLineMobile);
+    let varnishTitle = document.createElement("p");
+    varnishTitle.textContent = "Vernis";
+    varnishLineMobile.appendChild(varnishTitle);
+    let productVarnishMobile = document.createElement("div");
+    productVarnishMobile.classList.add("col-xs-6", "pt-3");
+    rowVarnishMobile.appendChild(productVarnishMobile);
+    let productVarnish = document.createElement("p");
+    productVarnish.classList.add("varnish-col");
+    productVarnish.textContent = element.varnish;
+    productVarnishMobile.appendChild(productVarnish);
+
+
+    let rowQuantityMobile = document.createElement("div");
+    rowQuantityMobile.classList.add("row", "row-mobile");
+    lineMobileProduct.appendChild(rowQuantityMobile);
+
+    let quantityLineMobile = document.createElement("div");
+    quantityLineMobile.classList.add("col-xs-6", "mobile-title", "pt-3");
+    rowQuantityMobile.appendChild(quantityLineMobile);
+    let quantityTitle = document.createElement("p");
+    quantityTitle.textContent = "Quantité";
+    quantityLineMobile.appendChild(quantityTitle);
+    let productQuantityMobile = document.createElement("div");
+    productQuantityMobile.classList.add("col-xs-6", "pt-3");
+    rowQuantityMobile.appendChild(productQuantityMobile);
+    let productQuantity = document.createElement("input");
+    Object.assign(productQuantity, {
+        type: "number",
+        name: "quantity",
+        value: 1,
+        min: 0,
+        max: 50
+    })
+    productQuantity.textContent = element.quantity;
+    productQuantityMobile.appendChild(productQuantity);
+
+    
+    let rowTotalMobile = document.createElement("div");
+    rowTotalMobile.classList.add("row", "row-mobile", "total-row");
+    lineMobileProduct.appendChild(rowTotalMobile);
+
+    let totalLineMobile = document.createElement("div");
+    totalLineMobile.classList.add("col-xs-6", "mobile-title", "pt-3");
+    rowTotalMobile.appendChild(totalLineMobile);
+    let totalTitle = document.createElement("p");
+    totalTitle.textContent = "Total produit";
+    totalLineMobile.appendChild(totalTitle);
+    let productTotalMobile = document.createElement("div");
+    productTotalMobile.classList.add("col-xs-6", "pt-3");
+    rowTotalMobile.appendChild(productTotalMobile);
+    let productTotal = document.createElement("p");
+    productTotal.textContent = priceNumber * element.quantity + " €";
+    productTotalMobile.appendChild(productTotal);
 }
+
+
+
+
+
+
 
 
 /******Validation données formulaire**********/
