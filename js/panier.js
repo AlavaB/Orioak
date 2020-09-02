@@ -1,14 +1,15 @@
-let getCart = JSON.parse(localStorage.getItem("cart"));
+let cartArray = JSON.parse(localStorage.getItem("cart"));//Lecture données local storage
 let addTotalProduct = 0;
 let finalTotal = document.getElementById("final-total");
 
-for (let index = 0; index < getCart.length; index++) {
-    const element = getCart[index];
+for (let index = 0; index < cartArray.length; index++) {//pour chaque objet présents dans le tableau j'éxécute la boucle
+    const element = cartArray[index];
 
     let lineProduct = document.getElementById("line");
     let priceNumber = element.price.replace(/\D/g, '');
 
     let productLine = document.createElement("div");
+    productLine.setAttribute("id", element.id);
     productLine.classList.add("product", "col-lg-12", "padding");
     lineProduct.appendChild(productLine);
 
@@ -21,11 +22,22 @@ for (let index = 0; index < getCart.length; index++) {
         title: "supprimer",
         src: "../images/deletion_cross.png"
     })
-    deleteCol.appendChild(deleteElement);
+    
     deleteElement.addEventListener("click", function() {
-        
-        //insérer removeItem
+        const index = cartArray.indexOf(element);//Récupération de l'index à supprimer
+        cartArray.splice(index, 1);
+        localStorage.setItem("cart", JSON.stringify(cartArray));//Nouvelle sauvegarde dans le local storage après supression de l'élément
+        document.getElementById(element.id).remove();
+        let getTotals = document.getElementsByClassName("total-product");
+        let newTotal = 0;
+        for (let index = 0; index < getTotals.length; index++) {
+            const element = getTotals[index];
+            newTotal += parseInt(element.textContent.replace(/\D/g, ''));
+            finalTotal.textContent = newTotal + " €";
+        }
     })
+    
+    deleteCol.appendChild(deleteElement);
 
     let imageCol = document.createElement("div");
     imageCol.classList.add("col-lg-2", "col-md-2");
@@ -95,11 +107,9 @@ for (let index = 0; index < getCart.length; index++) {
     total.textContent = priceNumber * element.quantity + " €";
 
     colTotal.appendChild(total);
-    addTotalProduct += parseInt(priceNumber);
+    addTotalProduct += parseInt(priceNumber * element.quantity);
     finalTotal.textContent = addTotalProduct + " €";
 }
-
-
 
 
 /******Validation données formulaire**********/
@@ -118,7 +128,6 @@ let phoneCheck = document.getElementById("phone");
 let adressCheck = document.getElementById("adress");
 let postalCodeCheck = document.getElementById("postal-code");
 let cityCheck = document.getElementById("city");
-
 let lettersRegex = /^[a-zA-ZÀ-ÿ-'\s]{2,}$/;
 let emailRegex = /.+@.+\..+/;
 let phoneRegex = /^[0-9]{10,10}$/;
@@ -130,39 +139,42 @@ lastNameCheck.addEventListener("input", function (event) {
     let lastNameMessage = document.getElementById("last-name-message");
     check(lastNameValue, lettersRegex, lastNameMessage, "Veuillez saisir un nom valide");
 });
-
 firstNameCheck.addEventListener("input", function (event) {
     let firstNameValue = event.target.value;
     let firstNameMessage = document.getElementById("first-name-message");
     check(firstNameValue, lettersRegex, firstNameMessage, "Veuillez saisir un prénom valide");
 });
-
 emailCheck.addEventListener("input", function (event) {
     let emailValue = event.target.value;
     let emailMessage = document.getElementById("email-message");
     check(emailValue, emailRegex, emailMessage, "Veuillez saisir une adresse email valide");
 });
-
 phoneCheck.addEventListener("input", function (event) {
     let phoneValue = event.target.value;
     let phoneMessage = document.getElementById("phone-message");
     check(phoneValue, phoneRegex, phoneMessage, "Veuillez saisir un numéro de téléphone valide");
 });
-
 adressCheck.addEventListener("input", function (event) {
     let adressValue = event.target.value;
     let adressMessage = document.getElementById("adress-message");
     check(adressValue, adressRegex, adressMessage, "Veuillez saisir une adresse valide")
 });
-
 postalCodeCheck.addEventListener("input", function (event) {
     let postalCodeValue = event.target.value;
     let postalCodeMessage = document.getElementById("postal-code-message");
     check(postalCodeValue, postalCodeRegex, postalCodeMessage, "Veuillez saisir un code postal valide");
 });
-
 cityCheck.addEventListener("input", function (event) {
     let cityValue = event.target.value;
     let cityMessage = document.getElementById("city-message");
     check(cityValue, lettersRegex, cityMessage, "Veuillez saisir un nom de ville valide");
 });
+
+
+//Soumission de la commande
+
+let submitOrder = document.getElementById("submit");
+submitOrder.addEventListener("click", function() {
+    let products = [];
+
+})

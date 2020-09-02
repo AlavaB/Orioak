@@ -1,3 +1,4 @@
+//Création des éléments dynamiquement
 function card(response) {
     for (let index = 0; index < response.length; index++) {
         const element = response[index];
@@ -37,5 +38,5 @@ function card(response) {
     }
 };
 
-requestApi(card, apiAdress);
+requestApi(card, apiAdress);//Appel de l'API
 

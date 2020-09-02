@@ -1,3 +1,4 @@
+//Paramètre de requête de l'URL
 let pageUrl = window.location.href;
 let url = new URL(pageUrl);
 let id = url.searchParams.get("id");
@@ -9,12 +10,11 @@ let createImage = document.getElementById("product-image");
 let createTitle = document.getElementById("title-product");
 let createPrice = document.getElementById("price-product");
 
+//Récupération des informations de l'API dynamiquement
 function item(response) {
-
     createImage.style.backgroundImage = "url(" + response.imageUrl + ")";
     createTitle.textContent = response.name;
     createPrice.textContent = (response.price / 100) + " €";
-
     let descriptionCol = document.getElementById("description");
     descriptionCol.textContent = response.description;
 
@@ -31,6 +31,7 @@ requestApi(item, apiUrl);
 let addToCart = document.getElementById("add-to-cart");
 addToCart.addEventListener("click", function () {
     let product = { 
+        id: id,
         varnish: selectVarnish.value, 
         quantity: selectQuantity.value, 
         image: createImage.style.backgroundImage, 

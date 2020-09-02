@@ -1,0 +1,44 @@
+<!--Product description board for mobile-->
+    <div class="container ">
+        <div class="row">
+            <div class="col col-xs-6-sm-6 mobile-title">
+                <p>Produit</p>
+            </div>
+            <div class="col col-xs-6 mobile-product">
+                <p id="name-col" class="product-name"></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-xs-6 mobile-title border-top pt-3">
+                <p>Prix unitaire</p>
+            </div>
+            <div class="col col-xs-6 mobile-product border-top pt-3">
+                <p id="price-col"></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-xs-6 mobile-title border-top pt-3">
+                <p>Quantité</p>
+            </div>
+            <div class="col col-xs-6 mobile-product border-top pt-3">
+                <input type="number" id="cart-quantity" name="quantity" value="1" min="1" max="100">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-xs-6 mobile-title border-top end-product pt-3">
+                <p>Total</p>
+            </div>
+            <div class="col col-xs-6 mobile-product border-top end-product pt-3">
+                <p></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-xs-6 mobile-title border-top end-product pt-3">
+                <p>Total TTC</p>
+            </div>
+            <div class="col col-xs-6 mobile-product border-top end-product pt-3">
+                <p></p>
+            </div>
+        </div>
+    </div>
+    <!--Product description board end-->
