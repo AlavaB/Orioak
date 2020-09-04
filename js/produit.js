@@ -10,7 +10,7 @@ let createImage = document.getElementById("product-image");
 let createTitle = document.getElementById("title-product");
 let createPrice = document.getElementById("price-product");
 
-//Récupération des informations de l'API dynamiquement
+//Récupération dynamique des informations de l'API
 function item(response) {
     createImage.style.backgroundImage = "url(" + response.imageUrl + ")";
     createTitle.textContent = response.name;

@@ -21,7 +21,7 @@ for (let index = 0; index < cartArray.length; index++) {//pour chaque objets pr�
     let lineProduct = document.getElementById("line");
     let priceNumber = element.price.replace(/\D/g, '');
 
-    let productLine = document.createElement("div");//Création ligne de produit avec id
+    let productLine = document.createElement("div");//Création ligne produit avec id
     productLine.setAttribute("id", element.id);
     productLine.classList.add("row", "product");
     lineProduct.appendChild(productLine);
@@ -45,7 +45,7 @@ for (let index = 0; index < cartArray.length; index++) {//pour chaque objets pr�
     })
     colDelete.appendChild(deleteElement);
 
-    let colImage = document.createElement("div");//Création de la colonne de l'image produit
+    let colImage = document.createElement("div");//Création de la colonne image produit
     colImage.classList.add("col-lg-2", "col-md-2");
     productLine.appendChild(colImage);
     let image = document.createElement("img");
@@ -57,7 +57,7 @@ for (let index = 0; index < cartArray.length; index++) {//pour chaque objets pr�
     colImage.appendChild(image);
     image.style.backgroundImage = element.image;
 
-    let colName = document.createElement("div");//Création de la colonne du nom produit
+    let colName = document.createElement("div");//Création de la colonne nom produit
     colName.classList.add("col-lg-2", "col-md-2", "product-row");
     productLine.appendChild(colName);
     let name = document.createElement("p");
@@ -65,7 +65,7 @@ for (let index = 0; index < cartArray.length; index++) {//pour chaque objets pr�
     name.textContent = element.name;
     colName.appendChild(name);
 
-    let colPrice = document.createElement("div");//Création de la colonne du prix produit
+    let colPrice = document.createElement("div");//Création de la colonne prix produit
     colPrice.classList.add("col-lg-2", "col-md-2", "product-row");
     productLine.appendChild(colPrice);
     let price = document.createElement("p");
@@ -73,7 +73,7 @@ for (let index = 0; index < cartArray.length; index++) {//pour chaque objets pr�
     price.textContent = element.price;
     colPrice.appendChild(price);
 
-    let colVarnish = document.createElement("div");//Création de la colonne du vernis
+    let colVarnish = document.createElement("div");//Création de la colonne vernis
     colVarnish.classList.add("col-lg-2", "col-md-2", "product-row");
     productLine.appendChild(colVarnish);
     let varnish = document.createElement("p");
@@ -81,7 +81,7 @@ for (let index = 0; index < cartArray.length; index++) {//pour chaque objets pr�
     varnish.textContent = element.varnish;
     colVarnish.appendChild(varnish);
 
-    let colQuantity = document.createElement("div");//Création de la colonne pour la sélection de la quantité
+    let colQuantity = document.createElement("div");//Création de la colonne quantité
     colQuantity.classList.add("col-lg-2", "col-md-2", "product-row");
     productLine.appendChild(colQuantity);
     let quantity = document.createElement("input");
@@ -113,15 +113,17 @@ for (let index = 0; index < cartArray.length; index++) {//pour chaque objets pr�
 
     //Création dynamique de la version mobile 
     let mobileLineProduct = document.getElementById("line-mobile");
-    let mobileProductLine = document.createElement("div");
+
+    let mobileProductLine = document.createElement("div");//Création div avec id
     mobileProductLine.setAttribute("id", element.id);
     mobileLineProduct.appendChild(mobileProductLine);
 
-    let rowNameMobile = document.createElement("div");
-    rowNameMobile.classList.add("row", "name-row");
+
+    let rowNameMobile = document.createElement("div");//Création de la ligne nom produit
+    rowNameMobile.classList.add("row", "name-row", "row-mobile");
     mobileProductLine.appendChild(rowNameMobile);
     
-    let productNameMobile = document.createElement("div");
+    let productNameMobile = document.createElement("div");//Création div affichage nom
     productNameMobile.classList.add("col-xs-6", "product-name");
     rowNameMobile.appendChild(productNameMobile);
     let productName = document.createElement("p");
@@ -129,26 +131,38 @@ for (let index = 0; index < cartArray.length; index++) {//pour chaque objets pr�
     productName.textContent = element.name;
     productNameMobile.appendChild(productName);
 
+
     let colDeleteMobile = document.createElement("div");//Création bouton de suppression
-    rowNameMobile.appendChild(colDelete);  
+    rowNameMobile.appendChild(colDeleteMobile);  
     let deleteElementMobile = document.createElement("input");
     Object.assign(deleteElementMobile, {
         type: "image",
         title: "supprimer",
-        src: "../images/deletion_cross.png"
+        src: "../images/deletion_cross.png",
+        className: "delete-button"
+    })
+    deleteElementMobile.addEventListener("click", function(event) {
+        const index = cartArray.indexOf(element);//Récupération de l'index à supprimer
+        cartArray.splice(index, 1);
+        localStorage.setItem("cart", JSON.stringify(cartArray));//Nouvelle sauvegarde dans le local storage après supression de l'élément
+        document.getElementById(element.id).remove();//Suppression de la ligne
+        updateFinalTotal();
     })
     colDeleteMobile.appendChild(deleteElementMobile);
 
-    let rowPriceMobile = document.createElement("div");
+
+    let rowPriceMobile = document.createElement("div");//Création de la ligne prix produit
     rowPriceMobile.classList.add("row", "row-mobile");
     mobileProductLine.appendChild(rowPriceMobile);
-    let priceLineMobile = document.createElement("div");
+    
+    let priceLineMobile = document.createElement("div");//Création div titre prix
     priceLineMobile.classList.add("col-xs-6", "mobile-title",  "pt-3");
     rowPriceMobile.appendChild(priceLineMobile);
     let priceTitle = document.createElement("p");
     priceTitle.textContent = "Prix unitaire";
     priceLineMobile.appendChild(priceTitle);
-    let productPriceMobile = document.createElement("div");
+    
+    let productPriceMobile = document.createElement("div");//Création div affichage prix
     productPriceMobile.classList.add("col-xs-6", "pt-3");
     rowPriceMobile.appendChild(productPriceMobile);
     let productPrice = document.createElement("p");
@@ -156,17 +170,19 @@ for (let index = 0; index < cartArray.length; index++) {//pour chaque objets pr�
     productPrice.textContent = element.price;
     productPriceMobile.appendChild(productPrice);
 
-    let rowVarnishMobile = document.createElement("div");
+
+    let rowVarnishMobile = document.createElement("div");//Création de la ligne vernis
     rowVarnishMobile.classList.add("row", "row-mobile");
     mobileProductLine.appendChild(rowVarnishMobile);
 
-    let varnishLineMobile = document.createElement("div");
+    let varnishLineMobile = document.createElement("div");//Création div titre vernis
     varnishLineMobile.classList.add("col-xs-6", "mobile-title", "pt-3");
     rowVarnishMobile.appendChild(varnishLineMobile);
     let varnishTitle = document.createElement("p");
     varnishTitle.textContent = "Vernis";
     varnishLineMobile.appendChild(varnishTitle);
-    let productVarnishMobile = document.createElement("div");
+    
+    let productVarnishMobile = document.createElement("div");//Création div affichage vernis
     productVarnishMobile.classList.add("col-xs-6", "pt-3");
     rowVarnishMobile.appendChild(productVarnishMobile);
     let productVarnish = document.createElement("p");
@@ -175,17 +191,18 @@ for (let index = 0; index < cartArray.length; index++) {//pour chaque objets pr�
     productVarnishMobile.appendChild(productVarnish);
 
 
-    let rowQuantityMobile = document.createElement("div");
+    let rowQuantityMobile = document.createElement("div");//Création de la ligne quantité
     rowQuantityMobile.classList.add("row", "row-mobile");
     mobileProductLine.appendChild(rowQuantityMobile);
 
-    let quantityLineMobile = document.createElement("div");
+    let quantityLineMobile = document.createElement("div");//Création div titre quantité
     quantityLineMobile.classList.add("col-xs-6", "mobile-title", "pt-3");
     rowQuantityMobile.appendChild(quantityLineMobile);
     let quantityTitle = document.createElement("p");
     quantityTitle.textContent = "Quantité";
     quantityLineMobile.appendChild(quantityTitle);
-    let productQuantityMobile = document.createElement("div");
+    
+    let productQuantityMobile = document.createElement("div");//Création div affichage quantité
     productQuantityMobile.classList.add("col-xs-6", "pt-3");
     rowQuantityMobile.appendChild(productQuantityMobile);
     let productQuantity = document.createElement("input");
@@ -200,29 +217,24 @@ for (let index = 0; index < cartArray.length; index++) {//pour chaque objets pr�
     productQuantityMobile.appendChild(productQuantity);
 
     
-    let rowTotalMobile = document.createElement("div");
+    let rowTotalMobile = document.createElement("div");//Création de la ligne total
     rowTotalMobile.classList.add("row", "row-mobile", "total-row");
     mobileProductLine.appendChild(rowTotalMobile);
 
-    let totalLineMobile = document.createElement("div");
+    let totalLineMobile = document.createElement("div");//Création div titre total
     totalLineMobile.classList.add("col-xs-6", "mobile-title", "pt-3");
     rowTotalMobile.appendChild(totalLineMobile);
     let totalTitle = document.createElement("p");
     totalTitle.textContent = "Total produit";
     totalLineMobile.appendChild(totalTitle);
-    let productTotalMobile = document.createElement("div");
+    
+    let productTotalMobile = document.createElement("div");//Création div affichage total
     productTotalMobile.classList.add("col-xs-6", "pt-3");
     rowTotalMobile.appendChild(productTotalMobile);
     let productTotal = document.createElement("p");
     productTotal.textContent = priceNumber * element.quantity + " €";
     productTotalMobile.appendChild(productTotal);
 }
-
-
-
-
-
-
 
 
 /******Validation données formulaire**********/
@@ -288,6 +300,6 @@ cityCheck.addEventListener("input", function (event) {
 
 let submitOrder = document.getElementById("submit");
 submitOrder.addEventListener("click", function() {
-    let products = [];
+    
 
 })
