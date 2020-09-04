@@ -28,6 +28,7 @@ function item(response) {
 
 requestApi(item, apiUrl);
 
+//Ajout au panier
 let addToCart = document.getElementById("add-to-cart");
 addToCart.addEventListener("click", function () {
     let product = { 

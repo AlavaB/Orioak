@@ -299,7 +299,21 @@ cityCheck.addEventListener("input", function (event) {
 //Soumission de la commande
 
 let submitOrder = document.getElementById("submit");
-submitOrder.addEventListener("click", function() {
-    
 
+submitOrder.addEventListener("click", function() {
+    let contact = {
+        lastName: lastNameCheck.value, 
+        firstName: firstNameCheck,
+        email: emailCheck,
+        adress: adressCheck,
+        city: cityCheck
+    };
+    let products = [];
+    for (let index = 0; index < cartArray.length; index++) {
+        const element = cartArray[index];
+        products.push(element.id);
+    }
+    requestApi("", url, )
 })
+
+

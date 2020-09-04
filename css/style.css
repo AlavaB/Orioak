@@ -229,3 +229,44 @@ ul {
 .form-title {
     margin-top: 50px;
 }
+
+/*Confirmation page*/
+.order-info {
+    justify-content: center;
+    align-items: center;
+}
+.order-text {
+    font-size: 1.5em;
+}
+.order-confirmed {
+    color: #2ecc71;
+    font-weight: bold;
+}
+.order-confirmation {
+    font-size: 1.5em;
+    text-align: justify;
+}
+.confirmation-product {
+    padding-bottom: 20px;
+    padding-top: 20px;
+    border-bottom: 0.25rem solid #d1d1e0;
+}
+.title-col {
+    font-weight: bolder;
+    border-bottom: 0.15rem solid #d1d1e0;
+}
+.product-col {
+    display: flex;
+    border-bottom: 0.25rem solid #d1d1e0;
+}
+.total-col {
+    font-weight: bolder;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+@media screen and (max-width: 770px) {
+    .order-info {
+        display: block;
+        text-align: center;
+    }
+}
