@@ -83,17 +83,84 @@
             </div>
         </div>
 
-        <div id="line">
-        </div>
+        <div id="line"></div>
+            <template id="desktop-cart">
+                <div class="row product idnumber+varnish">
+                    <div class="col-lg-1 col-md-1 product-row delete">
+                        <input type="image" title="supprimer" src="../images/deletion_cross.png">
+                    </div>
+                    <div class="col-lg-2 col-md-2">
+                        <img class="picture-cart image-col" width="80" height="80" alt="">
+                    </div>
+                    <div class="col-lg-2 col-md-2 product-row">
+                        <p class="product-name paragraph-product"></p>
+                    </div>
+                    <div class="col-lg-2 col-md-2 product-row">
+                        <p class="product-price paragraph-product"></p>
+                    </div>
+                    <div class="col-lg-2 col-md-2 product-row">
+                        <p class="product-varnish paragraph-product"></p>
+                    </div>
+                    <div class="col-lg-2 col-md-2 product-row">
+                        <input class="product-quantity" type="number" value="1" min="0" max="50">
+                    </div>
+                    <div class="col-lg-1 col-md-1 product-row padding">
+                        <p class="total-product paragraph-product"></p>
+                    </div>
+                </div>
+            </template>
     </div>
+
+    <div id="line-mobile" class="container mobile-board"></div>
+        <template id="mobile-cart">
+            <div class="idnumber+varnish">
+                <div class="row name-row row-mobile">
+                    <div class="col-xs-6 product-name">
+                        <p class="name-size"></p>
+                    </div>
+                    <div>
+                        <input type="image" title="supprimer" src="../images/deletion_cross.png" class="delete-button">
+                    </div>
+                </div>
+                <div class="row row-mobile">
+                    <div class="col-xs-6 mobile-title pt-3">
+                        <p>Prix unitaire</p>
+                    </div>
+                    <div class="col-xs-6 pt-3">
+                        <p class="price-col"></p>
+                    </div>
+                </div>
+                <div class="row row-mobile">
+                    <div class="col-xs-6 mobile-title pt-3">
+                        <p>Vernis</p>
+                    </div>
+                    <div class="col-xs-6 pt-3">
+                        <p class="varnish-col"></p>
+                    </div>
+                </div>
+                <div class="row row-mobile">
+                    <div class="col-xs-6 mobile-title pt-3">
+                        <p>Quantité</p>
+                    </div>
+                    <div class="col-xs-6 pt-3">
+                        <input type="number" value="1" min="0" max="50">
+                    </div>
+                </div>
+                <div class="row row-mobile total-row">
+                    <div class="col-xs-6 mobile-title pt-3">
+                        <p>Total produit</p>
+                    </div>
+                    <div class="col-xs-6 pt-3">
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </template>
+    
+
+    </div>
+
     <!--Product description board end-->
-
-    <!--Product description mobile-board-->
-    <div id="line-mobile" class="container mobile-board">
-
-    </div>
-
-    <!--Product description mobile-board end-->
 
     <!--Total-->
     <div class="container">

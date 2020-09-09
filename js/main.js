@@ -2,7 +2,7 @@
 let apiAdress = "http://localhost:3000/api/furniture/";
 
 //Appel de l'API
-function requestApi(callback, url, requestType = "GET", jsonBody) {
+function requestApi(callback, url, requestType = "GET", jsonBody = undefined) {
     let request = new XMLHttpRequest();
     if (requestType == "GET") {
         request.open(requestType, url);
