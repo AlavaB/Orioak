@@ -13,12 +13,16 @@ function requestApi(callback, url, requestType = "GET", jsonBody = undefined) {
                 callback(response);
             }
         }
-        } else if (requestType == "POST") {
-            request.open(requestType, url);
-            request.setRequestHeader("Content-Type", "application/json");
-            request.send(JSON.stringify(jsonBody));
+    } else if (requestType == "POST") {
+        request.open(requestType, url);
+        request.setRequestHeader("content-type", "application/json");
+        request.send(JSON.stringify(jsonBody));
+        request.onreadystatechange = function () {
+            if (this.readyState == XMLHttpRequest.DONE && this.status == 201) {
+                let commandResponse = JSON.parse(this.responseText);
+                callback(commandResponse);
+            }
         }
+    }
 };
-
-
 

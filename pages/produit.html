@@ -66,18 +66,18 @@
     <!--Product description-->
     <div class="container">
         <div class="row">
-            <div class="col-lg-6 card margin padding" id="image-col">
-                <img id="product-image" class="picture">
+            <div class="col-lg-6 card margin padding image-col">
+                <img id="image-product" class="picture">
             </div>
             <div class="offset-lg-1 col-lg-5 margin">
                 <h1 id="title-product" class="display-4"></h1>
                 <div class="layout-line"></div>
                 <h2 id="price-product" class="display-4 mt-3 mb-3"></h2>
-                <label for="varnish" id="">Choisissez le vernis :</label><br>
-                    <select name="varnish" id="varnish"></select><br><br>
+                <label for="varnish">Choisissez le vernis :</label><br>
+                    <select id="varnish-product" name="varnish"></select><br><br>
                     
                 <label for="quantity">Indiquez la quantité souhaitée :</label><br>
-                    <input type="number" id="quantity" name="quantity" value="1" min="1" max="50"><br>
+                    <input type="number" id="quantity" value="1" min="1" max="50"><br>
 
                 <button id="add-to-cart" type="button" class="btn btn-warning text-center mt-4 mb-4" onclick="window.location.href = 'panier.html'">Ajouter au panier</button>
 
@@ -93,7 +93,7 @@
         <div class="row">
             <div class="col margin top">
                 <h3>Description</h3>
-                <p id="description" class="text-justify"></p>
+                <p id="description-product" class="text-justify"></p>
 
             </div>
         </div>
