@@ -22,22 +22,18 @@ function laodCart() {//Fonction de création du panier
 
         let priceNumber = element.price.replace(/\D/g, '');//récupération du prix et suppression des caractères non numérique
 
-        /*let deleteElement = document.querySelector(".delete-element");
-        deleteElement.addEventListener("click", 
-        
-        function() {
-            const index = cartArray.indexOf(element);//Récupération de l'index à supprimer
-            cartArray.splice(index, 1);
-            localStorage.setItem("cart", JSON.stringify(cartArray));//Nouvelle sauvegarde dans le local storage après supression de l'élément
-            document.getElementById(element.id + element.varnish.replace(/\s+/g, '')).remove();//Suppression de la ligne
-            updateFinalTotal();
-        })*/
-
-
         function updateTotals(event) {//Fonction de mise à jour des totaux 
             let getQuantity = event.target.value * priceNumber + " €";
             total.textContent = getQuantity;
             totalMobile.textContent = getQuantity;
+            updateFinalTotal();
+        }
+
+        function deleteLine() {
+            const index = cartArray.indexOf(element);//Récupération de l'index à supprimer
+            cartArray.splice(index, 1);
+            localStorage.setItem("cart", JSON.stringify(cartArray));//Nouvelle sauvegarde dans le local storage après supression de l'élément
+            document.querySelector("." + combinedSelector).remove();//Suppression de la ligne
             updateFinalTotal();
         }
 
@@ -46,8 +42,10 @@ function laodCart() {//Fonction de création du panier
         let copyHtml = document.importNode(template, true);
         let quantity = copyHtml.querySelector(".product-quantity");
         let total = copyHtml.querySelector(".total-product");
+        let deleteElement = copyHtml.querySelector(".delete");
+        let combinedSelector = "id" + element.id + element.varnish.replace(/\s+/g, '');
 
-        copyHtml.querySelector(".get-id").classList.add(element.id + element.varnish.replace(/\s+/g, ''));
+        copyHtml.querySelector(".get-id").classList.add(combinedSelector);
         copyHtml.querySelector(".picture-cart").style.backgroundImage = element.image;
         copyHtml.querySelector(".product-name").textContent = element.name;
         copyHtml.querySelector(".product-price").textContent = element.price;
@@ -56,14 +54,16 @@ function laodCart() {//Fonction de création du panier
         quantity.addEventListener("change", updateTotals);
         total.textContent = priceNumber * element.quantity + " €";
         document.getElementById("line").appendChild(copyHtml);
+        deleteElement.addEventListener("click", deleteLine);
 
         //Insertion des objets sélectionnés en mobile
         let templateMobile = document.getElementById("mobile-cart").content;
         let copyHtmlMobile = document.importNode(templateMobile, true);
         let quantityMobile = copyHtmlMobile.querySelector(".quantity-col");
+        let deleteMobile = copyHtmlMobile.querySelector(".delete-mobile");
         let totalMobile = copyHtmlMobile.querySelector(".total-col");
 
-        copyHtmlMobile.querySelector(".get-id").classList.add(element.id + element.varnish.replace(/\s+/g, ''));
+        copyHtmlMobile.querySelector(".get-id").classList.add(combinedSelector);
         copyHtmlMobile.querySelector(".name-col").textContent = element.name;
         copyHtmlMobile.querySelector(".price-col").textContent = element.price;
         copyHtmlMobile.querySelector(".varnish-col").textContent = element.varnish;
@@ -71,6 +71,8 @@ function laodCart() {//Fonction de création du panier
         quantityMobile.addEventListener("change", updateTotals);
         totalMobile.textContent = priceNumber * element.quantity + " €";
         document.getElementById("line-mobile").appendChild(copyHtmlMobile);
+        deleteMobile.addEventListener("click", deleteLine);
+
 
         addTotalProduct += parseInt(priceNumber * element.quantity);
         finalTotal.textContent = addTotalProduct + " €";
@@ -132,11 +134,8 @@ cityCheck.addEventListener("input", function (event) {
 let submitOrder = document.getElementById("submit");
 
 function confirmation(commandResponse) {
-    submitOrder.setAttribute("href", "confirmation.html?command=" + commandResponse.orderId);
-    localStorage.removeItem("cart");
+    window.location.href = "confirmation.html?command=" + commandResponse.orderId;
 };
-
-
 
 submitOrder.addEventListener("click", function () {
     let contact = {

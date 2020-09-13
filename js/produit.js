@@ -39,8 +39,17 @@ addToCart.addEventListener("click", function () {
         name: createTitle.textContent, 
         price: createPrice.textContent 
     };
-    if (localStorage.getItem("cart")) {
+    if (localStorage.getItem("cart")) {//si cart existe dans local storage on récupère la cart in pousse le produit crée et on enregistre dans local storage
         let cartArray = JSON.parse(localStorage.getItem("cart"));
+        for (let index = 0; index < cartArray.length; index++) {
+            const element = cartArray[index];
+            if (element.id == product.id)
+                if (element.varnish == product.varnish) {
+                product.quantity = Number(product.quantity) + Number(element.quantity);
+                const index = cartArray.indexOf(element);//Récupération de l'index à supprimer
+                cartArray.splice(index, 1);
+                }                 
+        }
         cartArray.push(product);
         localStorage.setItem("cart", JSON.stringify(cartArray));
     } else {

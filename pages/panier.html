@@ -66,7 +66,7 @@
     <!--Product description board-->
     <div class="container board">
         <div class="row">
-            <div class="offset-lg-3 col-lg-2 offset-md-3 col-md-2 title-row">
+            <div class="offset-lg-2 col-lg-2 offset-md-3 col-md-2 title-row">
                 <p>Produit</p>
             </div>
             <div class="col-lg-2 col-md-2 title-row padding">
@@ -87,9 +87,6 @@
         <!--Création du panier en desktop-->
         <template id="desktop-cart">
             <div class="row product get-id">
-                <div class="col-lg-1 col-md-1 product-row delete">
-                <input class="delete-element" type="image" title="supprimer" src="../images/deletion_cross.png">
-                </div>
                 <div class="col-lg-2 col-md-2">
                     <img class="picture-cart image-col" width="80" height="80" alt="">
                 </div>
@@ -108,6 +105,9 @@
                 <div class="col-lg-1 col-md-1 product-row padding">
                     <p class="total-product paragraph-product totals"></p>
                 </div>
+                <div class="col-lg-1 col-md-1 product-row delete">
+                    <input class="delete-element" type="image" title="supprimer" src="../images/deletion_cross.png">
+                </div>
             </div>   
         </template>
     </div>
@@ -121,7 +121,7 @@
                 <div class="col-xs-6 product-name">
                     <p class="name-size name-col"></p>
                 </div>
-                <div>
+                <div class="delete-mobile">
                     <input class="delete-element delete-button" type="image" title="supprimer" src="../images/deletion_cross.png">
                 </div>
                 </div>
@@ -166,7 +166,7 @@
     <!--Total-->
     <div class="container">
         <div class="row total-mobile row-mobile">
-            <div class="offset-lg-9 col-lg-2 offset-md-9 col-md-2 col-sm-6 col-xs-4 final-total-row">
+            <div class="offset-lg-8 col-lg-2 offset-md-9 col-md-2 col-sm-6 col-xs-4 final-total-row">
                 <p>Total TTC</p>
             </div>
             <div class="col-lg-1 col-md-1 col-sm-6 col-xs-4 final-total-row padding">

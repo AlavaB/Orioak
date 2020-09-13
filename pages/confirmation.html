@@ -41,7 +41,7 @@
                             </li>
                             <li class="nav-item active">
                                 <img src="../images/panier.png" alt="Panier">
-                                <a class="nav-link" href="">Panier</a>
+                                <a class="nav-link" href="panier.html">Panier</a>
                             </li>
                         </ul>
                     </div>
@@ -89,24 +89,29 @@
                 <p>Montant</p>
             </div>
         </div>
-        <div class="row">
-            <div class="offset-lg-5 col-lg-2 offset-md-5 col-md-2 product-col">
-                <p class="product-name">Cross Table</p>
+        <div id="confirmation-recap"></div>
+        <template id="recap">
+            <div class="row">
+                <div class="offset-lg-5 col-lg-2 offset-md-5 col-md-2 product-col">
+                    <p class="product-name confirmation-name"></p>
+                </div>
+                <div class="col-lg-2 col-md-2 product-col">
+                    <p class="product-name confirmation-quantity"></p>
+                </div>
+                <div class="col-lg-2 col-md-2 product-col">
+                    <p class="confirmation-total"></p>
+                </div>
             </div>
-            <div class="col-lg-2 col-md-2 product-col">
-                <p class="product-name">1</p>
-            </div>
-            <div class="col-lg-2 col-md-2 product-col">
-                <p>59 900€</p>
-            </div>
-        </div>
+        </template>
+            
+        
         
         <div class="row">
             <div class="offset-lg-6 col-lg-3 offset-md-6 col-md-3 col-sm-6 col-xs-4 confirmation-total">
                 <p>Total TTC payé</p>
             </div>
             <div class="col-lg-2 col-md-2 col-sm-6 col-xs-4 confirmation-total">
-                <p>149 800€</p>
+                <p id="confirmation-final-total"></p>
             </div>
         </div>
     </div>
@@ -165,7 +170,6 @@
     </div>
     <!--Footer end-->
 
-    <script src="../js/main.js"></script>
     <script src="../js/confirmation.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
