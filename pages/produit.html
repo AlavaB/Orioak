@@ -66,42 +66,35 @@
     <!--Product description-->
     <div class="container">
         <div class="row">
-            <div class="col-lg-6">
-                <div class="card margin top">
-                    <div class="picture1"></div>
-                </div>
+            <div class="col-lg-6 card margin padding image-col">
+                <img id="image-product" class="picture">
             </div>
-            <div class="offset-lg-1 col-lg-5">
-                <div class="margin top">
-                    <h1 class="display-4 title-product">CROSS TABLE</h1>
-                    <div class="border-description"></div>
-                    <h2 class="display-4 mt-3 price">59 900€</h2>
-                    <label for="color">Choisissez la couleur :</label><br>
-                    <select name="color" id="color">
-                        <option value="">Rouge</option>
-                        <option value="">Vert</option>
-                        <option value="">Jaune</option>
-                    </select><br><br>
-                    <label for="quantity">Indiquez la quantité souhaitée :</label>
-                    <div class="mb-lg-2">
-                        <input type="number" id="quantity" name="quantity" value="1" nim="1" max="100">
-                    </div><br>
+            <div class="offset-lg-1 col-lg-5 margin">
+                <h1 id="title-product" class="display-4"></h1>
+                <div class="layout-line"></div>
+                <h2 id="price-product" class="display-4 mt-3 mb-3"></h2>
+                <label for="varnish">Choisissez le vernis :</label><br>
+                    <select id="varnish-product" name="varnish"></select><br><br>
+                    
+                <label for="quantity">Indiquez la quantité souhaitée :</label><br>
+                    <input type="number" id="quantity" value="1" min="1" max="50"><br>
 
-                    <button type="button" class="btn btn-warning text-center">Ajouter au panier</button><br><br>
-                    <div><img src="../images/checked.png" width="30" height="30" alt="Checkek button">Suivi de livraison
-                        en ligne ou sur demande</div>
-                    <div><img src="../images/checked.png" width="30" height="30" alt="Checkek button">Satisfait ou
-                        remboursé (selon conditions générales)</div>
-                    <div><img src="../images/checked.png" width="30" height="30" alt="Checkek button">Respect des délais
-                        annonçés</div>
-                </div>
-            </div>
+                <button id="add-to-cart" type="button" class="btn btn-warning text-center mt-4 mb-4" onclick="window.location.href = 'panier.html'">Ajouter au panier</button>
+
+                <div><img src="../images/checked.png" width="30" height="30" alt="Checked button">Suivi de livraison
+                    en ligne ou sur demande</div>
+                <div><img src="../images/checked.png" width="30" height="30" alt="Checked button">Satisfait ou
+                    remboursé (selon conditions générales)</div>
+                <div><img src="../images/checked.png" width="30" height="30" alt="Checked button">Respect des délais
+                    annonçés</div>
+            </div><br>         
         </div>
+
         <div class="row">
             <div class="col margin top">
                 <h3>Description</h3>
-                <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p id="description-product" class="text-justify"></p>
+
             </div>
         </div>
     </div>
@@ -162,6 +155,8 @@
     <!--Footer end-->
 
     <script src="../js/main.js"></script>
+    <script src="../js/produit.js"></script>
+    
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
         crossorigin="anonymous"></script>

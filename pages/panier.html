@@ -66,133 +66,111 @@
     <!--Product description board-->
     <div class="container board">
         <div class="row">
-            <div class="offset-lg-2 col-lg-4 offset-md-2 col-md-4 title-col">
+            <div class="offset-lg-2 col-lg-2 offset-md-3 col-md-2 title-row">
                 <p>Produit</p>
             </div>
-            <div class="col-lg-2 col-md-2 title-col">
+            <div class="col-lg-2 col-md-2 title-row padding">
                 <p>Prix unitaire</p>
             </div>
-            <div class="col-lg-2 col-md-2 title-col">
+            <div class="col-lg-2 col-md-2 title-row">
+                <p>Vernis</p>
+            </div>
+            <div class="col-lg-2 col-md-2 title-row">
                 <p>Quantité</p>
             </div>
-            <div class="col-lg-2 col-md-2 title-col">
+            <div class="col-lg-1 col-md-1 title-row">
                 <p>Total</p>
             </div>
         </div>
-        <div class="row product">
-            <div class="col-lg-2 col-md-2">
-                <img src="../images/oak_1.jpg" alt="" width="100" height="100">
-            </div>
-            <div class="col-lg-4 col-md-4 product-col">
-                <p class="product-name">Cross Table</p>
-            </div>
-            <div class="col-lg-2 col-md-2 product-col">
-                <p>59 900€</p>
-            </div>
-            <div class="col-lg-2 col-md-2 product-col">
-                <input type="number" id="quantity" name="quantity" value="1" nim="1" max="100">
-            </div>
-            <div class="col-lg-2 col-md-2 product-col">
-                <p>59 900€</p>
-            </div>
-        </div>
 
-        <div class="row product">
-            <div class="col-lg-2 col-md-2">
-                <img src="../images/oak_2.jpg" alt="" width="100" height="100">
-            </div>
-            <div class="col-lg-4 col-md-4 product-col">
-                <p class="product-name">Coffee Table</p>
-            </div>
-            <div class="col-lg-2 col-md-2 product-col">
-                <p>89 900€</p>
-            </div>
-            <div class="col-lg-2 col-md-2 product-col">
-                <input type="number" id="quantity" name="quantity" value="1" nim="1" max="100">
-            </div>
-            <div class="col-lg-2 col-md-2 product-col">
-                <p>89 900€</p>
-            </div>
-        </div>
+        <div id="line"></div>
+        <!--Création du panier en desktop-->
+        <template id="desktop-cart">
+            <div class="row product get-id">
+                <div class="col-lg-2 col-md-2">
+                    <img class="picture-cart image-col" width="80" height="80" alt="">
+                </div>
+                <div class="col-lg-2 col-md-2 product-row">
+                    <p class="product-name paragraph-product"></p>
+                </div>
+                <div class="col-lg-2 col-md-2 product-row">
+                    <p class="product-price paragraph-product"></p>
+                </div>
+                <div class="col-lg-2 col-md-2 product-row">
+                    <p class="product-varnish paragraph-product"></p>
+                </div>
+                <div class="col-lg-2 col-md-2 product-row">
+                    <input class="product-quantity quantity" name="quantity" type="number" value="1" min="1" max="50">
+                </div>
+                <div class="col-lg-1 col-md-1 product-row padding">
+                    <p class="total-product paragraph-product totals"></p>
+                </div>
+                <div class="col-lg-1 col-md-1 product-row delete">
+                    <input class="delete-element" type="image" title="supprimer" src="../images/deletion_cross.png">
+                </div>
+            </div>   
+        </template>
     </div>
 
-    <!--Product description board for mobile-->
     <div class="container mobile-board">
-        <div class="row">
-            <div class="col col-xs-6 mobile-title">
-                <p>Produit</p>
+        <div id="line-mobile"></div>
+        <!--Création du panier en mobile-->
+        <template id="mobile-cart">
+            <div class="get-id">
+                <div class="row name-row row-mobile">
+                <div class="col-xs-6 product-name">
+                    <p class="name-size name-col"></p>
+                </div>
+                <div class="delete-mobile">
+                    <input class="delete-element delete-button" type="image" title="supprimer" src="../images/deletion_cross.png">
+                </div>
+                </div>
+                <div class="row row-mobile">
+                    <div class="col-xs-6 mobile-title pt-3">
+                        <p>Prix unitaire</p>
+                    </div>
+                    <div class="col-xs-6 pt-3">
+                        <p class="price-col"></p>
+                    </div>
+                </div>
+                <div class="row row-mobile">
+                    <div class="col-xs-6 mobile-title pt-3">
+                        <p>Vernis</p>
+                    </div>
+                    <div class="col-xs-6 pt-3">
+                        <p class="varnish-col"></p>
+                    </div>
+                </div>
+                <div class="row row-mobile">
+                    <div class="col-xs-6 mobile-title pt-3">
+                        <p>Quantité</p>
+                    </div>
+                    <div class="col-xs-6 get-quantity pt-3">
+                        <input class="quantity-col quantity" name="quantity" type="number" value="1" min="1" max="50">
+                    </div>
+                </div>
+                <div class="row row-mobile total-row">
+                    <div class="col-xs-6 mobile-title pt-3">
+                        <p>Total produit</p>
+                    </div>
+                    <div class="col-xs-6 pt-3">
+                        <p class="total-col totals"></p>
+                    </div>
+                </div>
             </div>
-            <div class="col col-xs-6 mobile-product">
-                <p class="product-name">Cross Table</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col col-xs-6 mobile-title border-top pt-3">
-                <p>Prix unitaire</p>
-            </div>
-            <div class="col col-xs-6 mobile-product border-top pt-3">
-                <p>59 900€</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col col-xs-6 mobile-title border-top pt-3">
-                <p>Quantité</p>
-            </div>
-            <div class="col col-xs-6 mobile-product border-top pt-3">
-                <input type="number" id="quantity" name="quantity" value="1" nim="1" max="100">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col col-xs-6 mobile-title border-top end-product pt-3">
-                <p>Total</p>
-            </div>
-            <div class="col col-xs-6 mobile-product border-top end-product pt-3">
-                <p>59 900€</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col col-xs-6 mobile-title pt-3">
-                <p>Produit</p>
-            </div>
-            <div class="col col-xs-6 mobile-product pt-3">
-                <p class="product-name">Coffee table</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col col-xs-6 mobile-title border-top pt-3">
-                <p>Prix unitaire</p>
-            </div>
-            <div class="col col-xs-6 mobile-product border-top pt-3">
-                <p>89 900€</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col col-xs-6 mobile-title border-top pt-3">
-                <p>Quantité</p>
-            </div>
-            <div class="col col-xs-6 mobile-product border-top pt-3">
-                <input type="number" id="quantity" name="quantity" value="1" nim="1" max="100">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col col-xs-6 mobile-title border-top end-product pt-3">
-                <p>Total</p>
-            </div>
-            <div class="col col-xs-6 mobile-product border-top end-product pt-3">
-                <p>89 900€</p>
-            </div>
-        </div>
+            
+        </template>
     </div>
     <!--Product description board end-->
 
     <!--Total-->
     <div class="container">
-        <div class="row total">
-            <div class="offset-lg-8 col-lg-2 offset-md-8 col-md-2 col-sm-6 col-xs-4 total-col">
+        <div class="row total-mobile row-mobile">
+            <div class="offset-lg-8 col-lg-2 offset-md-9 col-md-2 col-sm-6 col-xs-4 final-total-row">
                 <p>Total TTC</p>
             </div>
-            <div class="col-lg-2 col-md-2 col-sm-6 col-xs-4 total-col">
-                <p>149 800€</p>
+            <div class="col-lg-1 col-md-1 col-sm-6 col-xs-4 final-total-row padding">
+                <p id="final-total">0 €</p>
             </div>
         </div>
     </div>
@@ -231,29 +209,11 @@
             </div>
             <div class="form-group">
                 <div class="form-row">
-                    <label class="col-md-2" for="tel">Téléphone</label>
-                    <div class="col-md-6">
-                        <input type="tel" class="form-control" id="phone">
-                    </div>
-                    <span class="col-md-4" id="phone-message"></span>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="form-row">
                     <label class="col-md-2" for="adress">Adresse*</label>
                     <div class="col-md-6">
                         <input type="text" class="form-control" id="adress" required>
                     </div>
                     <span class="col-md-4" id="adress-message"></span>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="form-row">
-                    <label class="col-md-2" for="postal-code">Code postal*</label>
-                    <div class="col-md-6">
-                        <input type="text" class="form-control" id="postal-code" required>
-                    </div>
-                    <span class="col-md-4" id="postal-code-message"></span>
                 </div>
             </div>
             <div class="form-group">
@@ -266,7 +226,8 @@
                 </div>
             </div>
             <div class="text-center margin top">
-                <button type="submit" class="btn btn-secondary">Confirmer la commande</button><br><br>
+                <!--<button type="submit" class=""></button><br><br>-->
+                <a id="submit" class="btn btn-secondary">Confirmer la commande</a>
             </div>
 
         </form>
@@ -326,8 +287,9 @@
         </div>
     </div>
     <!--Footer end-->
-
+    <script src="../js/main.js"></script>
     <script src="../js/panier.js"></script>
+
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
         crossorigin="anonymous"></script>
