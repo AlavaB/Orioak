@@ -37,8 +37,8 @@ function laodCart() {//Fonction de création du panier
             updateFinalTotal();
         }
 
-        //Insertion des objets sélectionnés en desktop
-        let template = document.getElementById("desktop-cart").content;
+        //Insertion des objets sélectionnés
+        let template = document.getElementById("cart").content;
         let copyHtml = document.importNode(template, true);
         let quantity = copyHtml.querySelector(".product-quantity");
         let total = copyHtml.querySelector(".total-product");
@@ -55,24 +55,6 @@ function laodCart() {//Fonction de création du panier
         total.textContent = priceNumber * element.quantity + " €";
         document.getElementById("line").appendChild(copyHtml);
         deleteElement.addEventListener("click", deleteLine);
-
-        //Insertion des objets sélectionnés en mobile
-        let templateMobile = document.getElementById("mobile-cart").content;
-        let copyHtmlMobile = document.importNode(templateMobile, true);
-        let quantityMobile = copyHtmlMobile.querySelector(".quantity-col");
-        let deleteMobile = copyHtmlMobile.querySelector(".delete-mobile");
-        let totalMobile = copyHtmlMobile.querySelector(".total-col");
-
-        copyHtmlMobile.querySelector(".get-id").classList.add(combinedSelector);
-        copyHtmlMobile.querySelector(".name-col").textContent = element.name;
-        copyHtmlMobile.querySelector(".price-col").textContent = element.price;
-        copyHtmlMobile.querySelector(".varnish-col").textContent = element.varnish;
-        quantityMobile.value = element.quantity;
-        quantityMobile.addEventListener("change", updateTotals);
-        totalMobile.textContent = priceNumber * element.quantity + " €";
-        document.getElementById("line-mobile").appendChild(copyHtmlMobile);
-        deleteMobile.addEventListener("click", deleteLine);
-
 
         addTotalProduct += parseInt(priceNumber * element.quantity);
         finalTotal.textContent = addTotalProduct + " €";

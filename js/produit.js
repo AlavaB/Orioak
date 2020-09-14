@@ -39,7 +39,7 @@ addToCart.addEventListener("click", function () {
         name: createTitle.textContent, 
         price: createPrice.textContent 
     };
-    if (localStorage.getItem("cart")) {//si cart existe dans local storage on récupère la cart in pousse le produit crée et on enregistre dans local storage
+    if (localStorage.getItem("cart")) {//si cart existe dans local storage on récupère la cart on pousse le produit crée et on enregistre dans local storage
         let cartArray = JSON.parse(localStorage.getItem("cart"));
         for (let index = 0; index < cartArray.length; index++) {
             const element = cartArray[index];

@@ -64,28 +64,27 @@
     <!--Presentation page end-->
 
     <!--Product description board-->
-    <div class="container board">
-        <div class="row">
-            <div class="offset-lg-2 col-lg-2 offset-md-3 col-md-2 title-row">
+    <div class="container">
+        <div class="row title-row">
+            <div class="offset-lg-2 col-lg-2 offset-md-2 col-md-2">
                 <p>Produit</p>
             </div>
-            <div class="col-lg-2 col-md-2 title-row padding">
+            <div class="col-lg-2 col-md-2 padding">
                 <p>Prix unitaire</p>
             </div>
-            <div class="col-lg-2 col-md-2 title-row">
+            <div class="col-lg-2 col-md-2">
                 <p>Vernis</p>
             </div>
-            <div class="col-lg-2 col-md-2 title-row">
+            <div class="col-lg-2 col-md-2">
                 <p>Quantité</p>
             </div>
-            <div class="col-lg-1 col-md-1 title-row">
+            <div class="col-lg-1 col-md-1">
                 <p>Total</p>
             </div>
         </div>
 
         <div id="line"></div>
-        <!--Création du panier en desktop-->
-        <template id="desktop-cart">
+        <template id="cart">
             <div class="row product get-id">
                 <div class="col-lg-2 col-md-2">
                     <img class="picture-cart image-col" width="80" height="80" alt="">
@@ -111,65 +110,15 @@
             </div>   
         </template>
     </div>
-
-    <div class="container mobile-board">
-        <div id="line-mobile"></div>
-        <!--Création du panier en mobile-->
-        <template id="mobile-cart">
-            <div class="get-id">
-                <div class="row name-row row-mobile">
-                <div class="col-xs-6 product-name">
-                    <p class="name-size name-col"></p>
-                </div>
-                <div class="delete-mobile">
-                    <input class="delete-element delete-button" type="image" title="supprimer" src="../images/deletion_cross.png">
-                </div>
-                </div>
-                <div class="row row-mobile">
-                    <div class="col-xs-6 mobile-title pt-3">
-                        <p>Prix unitaire</p>
-                    </div>
-                    <div class="col-xs-6 pt-3">
-                        <p class="price-col"></p>
-                    </div>
-                </div>
-                <div class="row row-mobile">
-                    <div class="col-xs-6 mobile-title pt-3">
-                        <p>Vernis</p>
-                    </div>
-                    <div class="col-xs-6 pt-3">
-                        <p class="varnish-col"></p>
-                    </div>
-                </div>
-                <div class="row row-mobile">
-                    <div class="col-xs-6 mobile-title pt-3">
-                        <p>Quantité</p>
-                    </div>
-                    <div class="col-xs-6 get-quantity pt-3">
-                        <input class="quantity-col quantity" name="quantity" type="number" value="1" min="1" max="50">
-                    </div>
-                </div>
-                <div class="row row-mobile total-row">
-                    <div class="col-xs-6 mobile-title pt-3">
-                        <p>Total produit</p>
-                    </div>
-                    <div class="col-xs-6 pt-3">
-                        <p class="total-col totals"></p>
-                    </div>
-                </div>
-            </div>
-            
-        </template>
-    </div>
     <!--Product description board end-->
 
     <!--Total-->
     <div class="container">
-        <div class="row total-mobile row-mobile">
-            <div class="offset-lg-8 col-lg-2 offset-md-9 col-md-2 col-sm-6 col-xs-4 final-total-row">
+        <div class="row total-mobile">
+            <div class="offset-lg-8 col-lg-2 offset-md-9 col-md-2 final-total-row">
                 <p>Total TTC</p>
             </div>
-            <div class="col-lg-1 col-md-1 col-sm-6 col-xs-4 final-total-row padding">
+            <div class="col-lg-1 col-md-1 final-total-row padding">
                 <p id="final-total">0 €</p>
             </div>
         </div>
@@ -226,8 +175,8 @@
                 </div>
             </div>
             <div class="text-center margin top">
-                <!--<button type="submit" class=""></button><br><br>-->
-                <a id="submit" class="btn btn-secondary">Confirmer la commande</a>
+                <!--<button type="submit" class=""></button>-->
+                <a id="submit" class="btn btn-secondary">Confirmer la commande</a><br>
             </div>
 
         </form>
