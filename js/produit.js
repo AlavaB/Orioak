@@ -2,7 +2,7 @@
 let pageUrl = window.location.href;
 let url = new URL(pageUrl);
 let id = url.searchParams.get("id");
-let apiUrl = apiAdress + id;
+let apiUrl = apiAddress + id;
 
 let selectVarnish = document.getElementById("varnish-product");
 let selectQuantity = document.getElementById("quantity");

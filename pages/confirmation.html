@@ -19,7 +19,7 @@
     <div class="bg-light">
         <div class="container">
             <div class="row">
-                <nav class="col navbar navbar-expand-lg navbar-light">
+                <nav id="navbarSupportedContent" class="col navbar navbar-expand-lg navbar-light">
                     <a class="navbar-brand" href="../index.html">
                         <img class="logo" src="../images/logo_orioak.png" width="100" height="100" alt="Site Logo">
                         <div><span class="name">ORIOAK</span> by ORINOCO<br>Meubles en chêne</div>
@@ -51,7 +51,6 @@
     </div>
     <!--Header end-->
 
-
     <!--Presentation page-->
     <div class="bg-secondary">
         <div class="container d-flex title-page">
@@ -76,49 +75,44 @@
             </div>
         </div>
 
-        <div class="row mt-3 mb-3">
-            <div class="offset-lg-1 col-lg-4 col-md-4 col-sm-12 col-xs-12">
+        <div class="row mt-3 mb-3 mobile-display">
+            <div class="offset-lg-1 col-lg-4 col-md-4 col-sm-12 col-12">
                 <h2 class="recap-text">Récapitulatif</h2>
             </div>
-            <div class="col-lg-2 col-md-4 col-sm-4 col-xs-4 title-col">
+            <div class="col-lg-2 col-md-4 col-sm-4 col-4 title-col">
                 <p>Produit</p>
             </div>
-            <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4 title-col">
+            <div class="col-lg-2 col-md-2 col-sm-4 col-4 title-col">
                 <p>Quantité</p>
             </div>
-            <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4 title-col">
+            <div class="col-lg-2 col-md-2 col-sm-4 col-4 title-col">
                 <p>Montant</p>
             </div>
         </div>
         <div id="confirmation-recap"></div>
         <template id="recap">
-            <div class="row mb-3">
-                <div class="offset-lg-5 col-lg-2 offset-md-4 col-md-4 col-sm-4 col-xs-4 product-col">
+            <div class="row mb-3 mobile-display">
+                <div class="offset-lg-5 col-lg-2 offset-md-4 col-md-4 col-sm-4 col-4 product-col">
                     <p class="product-name confirmation-name"></p>
                 </div>
-                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4 product-col">
+                <div class="col-lg-2 col-md-2 col-sm-4 col-4 product-col">
                     <p class="product-name confirmation-quantity"></p>
                 </div>
-                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4 product-col">
+                <div class="col-lg-2 col-md-2 col-sm-4 col-4 product-col">
                     <p class="confirmation-total"></p>
                 </div>
             </div>
         </template>
-            
-        
         
         <div class="row">
-            <div class="offset-lg-6 col-lg-3 offset-md-7 col-md-3 offset-sm-4 col-sm-4 col-xs-4 confirmation-total">
+            <div class="offset-lg-6 col-lg-3 offset-md-6 col-md-3 col-sm-6 col-6 confirmation-total">
                 <p>Total TTC payé</p>
             </div>
-            <div class="col-lg-3 col-md-2 col-sm-4 col-xs-4 confirmation-total">
+            <div class="col-lg-3 col-md-2 col-sm-6 col-6 confirmation-total">
                 <p id="confirmation-final-total"></p>
             </div>
         </div>
     </div>
-    
-    
-
 
     <!--Customer information-->
     <div class="bg-secondary">

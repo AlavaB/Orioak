@@ -173,6 +173,9 @@ ul {
     background-size: cover;
     background-position: center center;
 }
+#submit {
+    width: 220px;
+}
 @media screen and (max-width: 770px) {
     .title-row {
         display: none;
@@ -195,9 +198,6 @@ ul {
     .total-row {
         margin-top: 0;
         border-bottom: 0.25rem solid #d1d1e0;
-    }
-    .total-mobile {
-        flex-wrap: nowrap;
     }
     .product-name {
         align-items: center;
@@ -231,9 +231,11 @@ ul {
 .title-col {
     font-weight: bolder;
     border-bottom: 0.15rem solid #d1d1e0;
+    text-align: center;
 }
 .product-col {
     border-bottom: 0.25rem solid #d1d1e0;
+    text-align: center;
 }
 .confirmation-total {
     font-weight: bolder;
@@ -244,6 +246,9 @@ ul {
         text-align: center;
     }
     .recap-text {
-        margin-bottom: 30px;
+        margin-bottom: 50px;
+    }
+    .confirmation-total {
+        text-align: center;
     }
 }

@@ -1,14 +1,14 @@
-//Création des éléments dynamiquement
+/*Insertion dynamique des produits de l'API
+**grâce à une boucle qui s'exécute pour chaque objet présent dans l'API
+*/
 function card(response) {
-    for (let index = 0; index < response.length; index++) {
+    for (let index = 0; index < response.length; index++) {//
         const element = response[index];
 
         let rowElement = document.querySelector(".product-list");
-        
         let createFirstElement = document.createElement("div");
         createFirstElement.classList.add("col-lg-6", "col-md-6", "margin");
         rowElement.appendChild(createFirstElement);
-
         let createCard = document.createElement("div");
         createCard.classList.add("item");
         createFirstElement.appendChild(createCard);
@@ -38,5 +38,5 @@ function card(response) {
     }
 };
 
-requestApi(card, apiAdress);//Appel de l'API
+requestApi(card, apiAddress);//Fonction d'appel de l'API avec en paramètre insertion des produits et adresse de l'API
 

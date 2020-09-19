@@ -4,11 +4,11 @@ let url = new URL(pageUrl);
 let command = url.searchParams.get("command");
 validationNumber.textContent = command;
 
-
 let addTotalProduct = 0;
 let cartArray = JSON.parse(localStorage.getItem("cart"));//Lecture données local storage
 
-for (let index = 0; index < cartArray.length; index++) {//pour chaque objets présents dans le tableau j'éxécute la boucle
+if (cartArray) {
+    for (let index = 0; index < cartArray.length; index++) {//pour chaque objets présents dans le tableau j'éxécute la boucle
         const element = cartArray[index];
 
         let priceNumber = element.price.replace(/\D/g, '');//récupération du prix et suppression des caractères non numérique
@@ -24,3 +24,7 @@ for (let index = 0; index < cartArray.length; index++) {//pour chaque objets pr�
         addTotalProduct += parseInt(priceNumber * element.quantity);
         confirmationFinalTotal.textContent = addTotalProduct + " €";
     }
+    localStorage.removeItem("cart");
+} else {    
+    window.location.href = "../index.html";
+}

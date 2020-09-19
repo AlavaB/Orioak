@@ -16,48 +16,50 @@ function updateFinalTotal() {//Fonction de mise à jour du total final
 };
 
 function laodCart() {//Fonction de création du panier
+    
+    if (cartArray) {
+        for (let index = 0; index < cartArray.length; index++) {//pour chaque objets présents dans le tableau j'éxécute la boucle
+            const element = cartArray[index];
 
-    for (let index = 0; index < cartArray.length; index++) {//pour chaque objets présents dans le tableau j'éxécute la boucle
-        const element = cartArray[index];
+            let priceNumber = element.price.replace(/\D/g, '');//récupération du prix et suppression des caractères non numérique
+            function updateTotals(event) {//Fonction de mise à jour des totaux 
+                let getQuantity = event.target.value * priceNumber + " €";
+                total.textContent = getQuantity;
+                document.getElementsByClassName("total-final").textContent = getQuantity;
+                updateFinalTotal();
+            }
 
-        let priceNumber = element.price.replace(/\D/g, '');//récupération du prix et suppression des caractères non numérique
+            function deleteLine() {
+                const index = cartArray.indexOf(element);//Récupération de l'index à supprimer
+                cartArray.splice(index, 1);
+                localStorage.setItem("cart", JSON.stringify(cartArray));//Nouvelle sauvegarde dans le local storage après supression de l'élément
+                document.getElementById(combinedSelector).remove();//Suppression de la ligne
+                updateFinalTotal();
+            }
 
-        function updateTotals(event) {//Fonction de mise à jour des totaux 
-            let getQuantity = event.target.value * priceNumber + " €";
-            total.textContent = getQuantity;
-            totalMobile.textContent = getQuantity;
-            updateFinalTotal();
+            //Insertion des objets sélectionnés
+            
+            let template = document.getElementById("cart").content;
+            let copyHtml = document.importNode(template, true);
+            let quantity = copyHtml.querySelector(".product-quantity");
+            let total = copyHtml.querySelector(".total-product");
+            let deleteElement = copyHtml.querySelector(".delete");
+            let combinedSelector = element.id + element.varnish.replace(/\s+/g, '');
+
+            copyHtml.querySelector(".get-id").setAttribute("id", combinedSelector);
+            copyHtml.querySelector(".picture-cart").style.backgroundImage = element.image;
+            copyHtml.querySelector(".product-name").textContent = element.name;
+            copyHtml.querySelector(".product-price").textContent = element.price;
+            copyHtml.querySelector(".product-varnish").textContent = element.varnish;
+            quantity.value = element.quantity;
+            quantity.addEventListener("change", updateTotals);
+            total.textContent = priceNumber * element.quantity + " €";
+            document.getElementById("line").appendChild(copyHtml);
+            deleteElement.addEventListener("click", deleteLine);
+
+            addTotalProduct += parseInt(priceNumber * element.quantity);
+            finalTotal.textContent = addTotalProduct + " €";
         }
-
-        function deleteLine() {
-            const index = cartArray.indexOf(element);//Récupération de l'index à supprimer
-            cartArray.splice(index, 1);
-            localStorage.setItem("cart", JSON.stringify(cartArray));//Nouvelle sauvegarde dans le local storage après supression de l'élément
-            document.querySelector("." + combinedSelector).remove();//Suppression de la ligne
-            updateFinalTotal();
-        }
-
-        //Insertion des objets sélectionnés
-        let template = document.getElementById("cart").content;
-        let copyHtml = document.importNode(template, true);
-        let quantity = copyHtml.querySelector(".product-quantity");
-        let total = copyHtml.querySelector(".total-product");
-        let deleteElement = copyHtml.querySelector(".delete");
-        let combinedSelector = "id" + element.id + element.varnish.replace(/\s+/g, '');
-
-        copyHtml.querySelector(".get-id").classList.add(combinedSelector);
-        copyHtml.querySelector(".picture-cart").style.backgroundImage = element.image;
-        copyHtml.querySelector(".product-name").textContent = element.name;
-        copyHtml.querySelector(".product-price").textContent = element.price;
-        copyHtml.querySelector(".product-varnish").textContent = element.varnish;
-        quantity.value = element.quantity;
-        quantity.addEventListener("change", updateTotals);
-        total.textContent = priceNumber * element.quantity + " €";
-        document.getElementById("line").appendChild(copyHtml);
-        deleteElement.addEventListener("click", deleteLine);
-
-        addTotalProduct += parseInt(priceNumber * element.quantity);
-        finalTotal.textContent = addTotalProduct + " €";
     }
 }
 
@@ -65,75 +67,101 @@ function laodCart() {//Fonction de création du panier
 function check(value, regex, message, errorMessage) {
     if (!regex.test(value)) {
         message.textContent = errorMessage;
+        checks[checks.current] = false;
     } else {
         message.textContent = "";
+        checks[checks.current] = true;
+    }
+    if (checks.lastName == true && checks.firstName == true && checks.email == true && checks.address == true && checks.city == true) {
+        submitOrder.removeAttribute("disabled");
+    } else {
+        submitOrder.setAttribute("disabled", "");
     }
 };
 
 let lastNameCheck = document.getElementById("last-name");
-lastNameCheck.value = "qsdf";
 let firstNameCheck = document.getElementById("first-name");
-firstNameCheck.value = "azer";
 let emailCheck = document.getElementById("email");
-emailCheck.value = "azer@qsdf.wxcv"
-let adressCheck = document.getElementById("adress");
-adressCheck.value = "azer azer";
+let addressCheck = document.getElementById("address");
 let cityCheck = document.getElementById("city");
-cityCheck.value = "asc";
 let lettersRegex = /^[a-zA-ZÀ-ÿ-'\s]{2,}$/;
 let emailRegex = /.+@.+\..+/;
-let phoneRegex = /^[0-9]{10,10}$/;
-let adressRegex = /^[a-zA-Z0-9À-ÿ-'\s]{1,}$/;
-let postalCodeRegex = /\d{2}[ ]?\d{3}/;
+let addressRegex = /^[a-zA-Z0-9À-ÿ-'\s]{1,}$/;
+let checks = {
+    lastName: false,
+    firstName: false,
+    email: false,
+    address: false,
+    city: false
+}
 
 lastNameCheck.addEventListener("input", function (event) {
     let lastNameValue = event.target.value;
     let lastNameMessage = document.getElementById("last-name-message");
-    check(lastNameValue, lettersRegex, lastNameMessage, "Veuillez saisir un nom valide");
+    checks.current = "lastName";
+    check(lastNameValue, lettersRegex, lastNameMessage, "Veuillez saisir un nom valide", checks);
 });
 firstNameCheck.addEventListener("input", function (event) {
     let firstNameValue = event.target.value;
     let firstNameMessage = document.getElementById("first-name-message");
-    check(firstNameValue, lettersRegex, firstNameMessage, "Veuillez saisir un prénom valide");
+    checks.current = "firstName";
+    check(firstNameValue, lettersRegex, firstNameMessage, "Veuillez saisir un prénom valide", checks);
 });
 emailCheck.addEventListener("input", function (event) {
     let emailValue = event.target.value;
     let emailMessage = document.getElementById("email-message");
-    check(emailValue, emailRegex, emailMessage, "Veuillez saisir une adresse email valide");
+    checks.current = "email";
+    check(emailValue, emailRegex, emailMessage, "Veuillez saisir une adresse email valide", checks);
 });
-adressCheck.addEventListener("input", function (event) {
-    let adressValue = event.target.value;
-    let adressMessage = document.getElementById("adress-message");
-    check(adressValue, adressRegex, adressMessage, "Veuillez saisir une adresse valide")
+addressCheck.addEventListener("input", function (event) {
+    let addressValue = event.target.value;
+    let addressMessage = document.getElementById("address-message");
+    checks.current = "address";
+    check(addressValue, addressRegex, addressMessage, "Veuillez saisir une adresse valide", checks)
 });
 cityCheck.addEventListener("input", function (event) {
     let cityValue = event.target.value;
     let cityMessage = document.getElementById("city-message");
-    check(cityValue, lettersRegex, cityMessage, "Veuillez saisir un nom de ville valide");
+    checks.current = "city";
+    check(cityValue, lettersRegex, cityMessage, "Veuillez saisir un nom de ville valide", checks);
 });
 
 //Soumission de la commande
 let submitOrder = document.getElementById("submit");
+let finalMessage = document.getElementById("final-message");
+submitOrder.setAttribute("disabled", "");
 
 function confirmation(commandResponse) {
     window.location.href = "confirmation.html?command=" + commandResponse.orderId;
 };
 
+
 submitOrder.addEventListener("click", function () {
-    let contact = {
-        firstName: firstNameCheck.value,
-        lastName: lastNameCheck.value,
-        address: adressCheck.value,
-        city: cityCheck.value,
-        email: emailCheck.value
-    };
-    let products = [];
-    for (let index = 0; index < cartArray.length; index++) {
-        const element = cartArray[index];
-        products.push(element.id);
+
+    if (cartArray) {
+        if (cartArray.length > 0) {
+            if (checks.lastName == true && checks.firstName == true && checks.email == true && checks.address == true && checks.city == true) {
+                let contact = {
+                    firstName: firstNameCheck.value,
+                    lastName: lastNameCheck.value,
+                    address: addressCheck.value,
+                    city: cityCheck.value,
+                    email: emailCheck.value
+                };
+                let products = [];
+                for (let index = 0; index < cartArray.length; index++) {
+                    const element = cartArray[index];
+                    products.push(element.id);
+                }
+                let request = { contact, products };
+                requestApi(confirmation, apiAddress + "order", "POST", request);
+            }
+        } else {
+            finalMessage.textContent = "Choisissez au moins un article.";
+        }
+    } else {
+        finalMessage.textContent = "Choisissez au moins un article.";
     }
-    let request = { contact, products };
-    requestApi(confirmation, apiAdress + "order", "POST", request);
-})
+});
 
 

@@ -19,7 +19,7 @@
     <div class="bg-light">
         <div class="container">
             <div class="row">
-                <nav class="col navbar navbar-expand-lg navbar-light">
+                <nav id="navbarSupportedContent" class="col navbar navbar-expand-lg navbar-light">
                     <a class="navbar-brand" href="../index.html">
                         <img class="logo" src="../images/logo_orioak.png" width="100" height="100" alt="Site Logo">
                         <div><span class="name">ORIOAK</span> by ORINOCO<br>Meubles en chêne</div>
@@ -128,7 +128,7 @@
     <!--Contact form-->
     <div class="container">
         <h2 class="form-title">Vos coordonnées</h2><br>
-        <form action="">
+        <form onsubmit="return checkForm()" action="">
             <div class="form-group">
                 <div class="form-row">
                     <label class="col-md-2" for="name">Nom*</label>
@@ -158,11 +158,11 @@
             </div>
             <div class="form-group">
                 <div class="form-row">
-                    <label class="col-md-2" for="adress">Adresse*</label>
+                    <label class="col-md-2" for="address">Adresse*</label>
                     <div class="col-md-6">
-                        <input type="text" class="form-control" id="adress" required>
+                        <input type="text" class="form-control" id="address" required>
                     </div>
-                    <span class="col-md-4" id="adress-message"></span>
+                    <span class="col-md-4" id="address-message"></span>
                 </div>
             </div>
             <div class="form-group">
@@ -175,8 +175,8 @@
                 </div>
             </div>
             <div class="text-center margin top">
-                <!--<button type="submit" class=""></button>-->
-                <a id="submit" class="btn btn-secondary">Confirmer la commande</a><br>
+                <!--<button id="submit" type="submit" class="btn btn-secondary">Confirmer la commande</button>-->
+                <input id="submit" class="btn btn-secondary" value="Confirmer la commande"><br><br><span id="final-message"></span>
             </div>
 
         </form>
