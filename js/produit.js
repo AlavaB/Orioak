@@ -11,8 +11,9 @@ let createTitle = document.getElementById("title-product");
 let createPrice = document.getElementById("price-product");
 let createDescription = document.getElementById("description-product");
 
-//Récupération dynamique des informations de l'API
-function item(response) {
+//Récupération dynamique des informations de l'API avec la promise
+requestApi("GET", apiUrl)
+.then(function (response) {
     createImage.style.backgroundImage = "url(" + response.imageUrl + ")";
     createTitle.textContent = response.name;
     createPrice.textContent = (response.price / 100) + " €";
@@ -24,9 +25,10 @@ function item(response) {
         createOptions.textContent = element;
         selectVarnish.appendChild(createOptions);
     }
-};
-
-requestApi(item, apiUrl);
+})
+.catch(function (error) {
+    console.error("Il y a une erreur.", error.statusText)
+});
 
 //Ajout au panier
 let addToCart = document.getElementById("add-to-cart");

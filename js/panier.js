@@ -1,7 +1,7 @@
 let addTotalProduct = 0;
 let finalTotal = document.getElementById("final-total");
 let cartArray = JSON.parse(localStorage.getItem("cart"));//Lecture données local storage
-laodCart();
+loadCart();
 
 function updateFinalTotal() {//Fonction de mise à jour du total final
     let getTotals = document.getElementsByClassName("total-product");
@@ -15,7 +15,7 @@ function updateFinalTotal() {//Fonction de mise à jour du total final
     finalTotal.textContent = newTotal + " €";
 };
 
-function laodCart() {//Fonction de création du panier
+function loadCart() {//Fonction de création du panier
     
     if (cartArray) {
         for (let index = 0; index < cartArray.length; index++) {//pour chaque objets présents dans le tableau j'éxécute la boucle
@@ -131,13 +131,7 @@ let submitOrder = document.getElementById("submit");
 let finalMessage = document.getElementById("final-message");
 submitOrder.setAttribute("disabled", "");
 
-function confirmation(commandResponse) {
-    window.location.href = "confirmation.html?command=" + commandResponse.orderId;
-};
-
-
 submitOrder.addEventListener("click", function () {
-
     if (cartArray) {
         if (cartArray.length > 0) {
             if (checks.lastName == true && checks.firstName == true && checks.email == true && checks.address == true && checks.city == true) {
@@ -154,7 +148,13 @@ submitOrder.addEventListener("click", function () {
                     products.push(element.id);
                 }
                 let request = { contact, products };
-                requestApi(confirmation, apiAddress + "order", "POST", request);
+                requestApi("POST", apiAddress + "order", request)
+                .then(function (response) {
+                    window.location.href = "confirmation.html?command=" + response.orderId;
+                })
+                .catch(function (error) {
+                    console.error("Il y a une erreur.", error.statusText)
+                });
             }
         } else {
             finalMessage.textContent = "Choisissez au moins un article.";

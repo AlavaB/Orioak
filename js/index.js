@@ -1,8 +1,7 @@
-/*Insertion dynamique des produits de l'API
-**grâce à une boucle qui s'exécute pour chaque objet présent dans l'API
-*/
-function card(response) {
-    for (let index = 0; index < response.length; index++) {//
+//Appel de l'API avec une promise
+requestApi("GET", apiAddress)
+.then(function (response) {
+    for (let index = 0; index < response.length; index++) {
         const element = response[index];
 
         let rowElement = document.querySelector(".product-list");
@@ -35,8 +34,8 @@ function card(response) {
         createText.classList.add("card-text", "font-weight-bold");
         createText.textContent = (element.price / 100) + " €";
         createCardBody.appendChild(createText);
-    }
-};
-
-requestApi(card, apiAddress);//Fonction d'appel de l'API avec en paramètre insertion des produits et adresse de l'API
-
+    }   
+})
+.catch(function (error) {
+    console.error("Il y a une erreur.", error.statusText)
+});
