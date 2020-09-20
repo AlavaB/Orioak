@@ -109,6 +109,9 @@ ul {
     display: flex;
     justify-content: flex-start;
 }
+.input-size {
+    width: 3em;
+}
 @media screen and (max-width: 990px) {
     #title-product {
         font-size: 3.2em;
@@ -175,6 +178,9 @@ ul {
 }
 #submit {
     width: 220px;
+}
+.false-message {
+    color: #ff6961;
 }
 @media screen and (max-width: 770px) {
     .title-row {

@@ -1,3 +1,4 @@
+//Paramètre Get pour récupèration du numéro de commande généré dans la page précédente
 let validationNumber = document.getElementById("validation-number");
 let pageUrl = window.location.href;
 let url = new URL(pageUrl);
@@ -12,7 +13,6 @@ if (cartArray) {
         const element = cartArray[index];
 
         let priceNumber = element.price.replace(/\D/g, '');//récupération du prix et suppression des caractères non numérique
-
         let template = document.getElementById("recap").content;
         let copyHtml = document.importNode(template, true);
         copyHtml.querySelector(".confirmation-name").textContent = element.name;

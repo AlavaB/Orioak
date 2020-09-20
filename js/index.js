@@ -1,4 +1,4 @@
-//Appel de l'API avec une promise
+//Appel de l'API avec une promise pour construction dynamique de la page
 requestApi("GET", apiAddress)
 .then(function (response) {
     for (let index = 0; index < response.length; index++) {
@@ -37,5 +37,5 @@ requestApi("GET", apiAddress)
     }   
 })
 .catch(function (error) {
-    console.error("Il y a une erreur.", error.statusText)
+    console.error("Il y a une erreur.", error.statusText);//Affichage de l'erreur (dans la console pour l'instant pour MVP uniquement)
 });

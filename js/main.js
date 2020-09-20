@@ -1,7 +1,7 @@
 //Variable générique pour adresse localhost:3000
 let apiAddress = "http://localhost:3000/api/furniture/";
 
-//Appel de l'API
+//Fonction d'appel de l'API
 function requestApi(method, url, jsonBody) {
     return new Promise(function (resolve, reject) {
         var request = new XMLHttpRequest();
@@ -17,7 +17,7 @@ function requestApi(method, url, jsonBody) {
                 });
             }
         }
-        request.onerror = function () {//onerror réagit à une requête terminée avec erreur
+        request.onerror = function () {//onerror réagit à une requête terminée sans code retourné
             reject({
                 status: this.status,
                 statusText: request.statusText

@@ -16,7 +16,6 @@ function updateFinalTotal() {//Fonction de mise à jour du total final
 };
 
 function loadCart() {//Fonction de création du panier
-    
     if (cartArray) {
         for (let index = 0; index < cartArray.length; index++) {//pour chaque objets présents dans le tableau j'éxécute la boucle
             const element = cartArray[index];
@@ -87,7 +86,7 @@ let cityCheck = document.getElementById("city");
 let lettersRegex = /^[a-zA-ZÀ-ÿ-'\s]{2,}$/;
 let emailRegex = /.+@.+\..+/;
 let addressRegex = /^[a-zA-Z0-9À-ÿ-'\s]{1,}$/;
-let checks = {
+let checks = {//Création d'objet pour vérifier la validité de l'ensemble à la soumission 
     lastName: false,
     firstName: false,
     email: false,
